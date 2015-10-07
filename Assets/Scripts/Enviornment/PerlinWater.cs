@@ -13,8 +13,9 @@ public class PerlinWater : MonoBehaviour {
         for ( var x = 0; x < size; x++ ){
             for( var z = 0; z < size; z++){
                 GameObject wave = Instantiate(waves[Random.Range(0, 4)], new Vector3(x, 0, z), Quaternion.identity) as GameObject;
-                wave.transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, 0.4f);
-                wave.transform.GetChild(0).localPosition = new Vector3(-1f, 0, 0);
+                wave.transform.GetChild(0).localScale = new Vector3(0.125f, 0.1f, 0.6f);
+                wave.transform.GetChild(0).localPosition = new Vector3(0, 0, 0);
+                wave.transform.GetChild(0).gameObject.AddComponent<WaterAnimation>();
                 wave.transform.parent = this.transform;
              }
         }

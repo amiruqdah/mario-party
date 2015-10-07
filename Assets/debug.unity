@@ -85,96 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &37999248
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 37999249}
-  - 33: {fileID: 37999251}
-  - 23: {fileID: 37999250}
-  m_Layer: 0
-  m_Name: default
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &37999249
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  m_GameObject: {fileID: 37999248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 141224612}
-  m_RootOrder: 0
---- !u!23 &37999250
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 76cbaf3231082174bafc8408b2126cb9,
-    type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  m_GameObject: {fileID: 37999248}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 9868795b3eea82f4ca0a804cb93ced8d, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &37999251
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 76cbaf3231082174bafc8408b2126cb9,
-    type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  m_GameObject: {fileID: 37999248}
-  m_Mesh: {fileID: 4300000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
---- !u!1 &141224611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 141224612}
-  m_Layer: 0
-  m_Name: mario_idle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &141224612
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  m_PrefabInternal: {fileID: 435455214}
-  m_GameObject: {fileID: 141224611}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.23000002, y: -4.49030018, z: -.360697269}
-  m_LocalScale: {x: .300555676, y: .300555795, z: .300555795}
-  m_Children:
-  - {fileID: 37999249}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!1001 &435455214
 Prefab:
   m_ObjectHideFlags: 0
@@ -232,7 +142,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  m_RootGameObject: {fileID: 141224611}
   m_IsPrefabParent: 0
 --- !u!1 &685863590
 GameObject:
@@ -306,6 +215,7 @@ GameObject:
   - 92: {fileID: 1476383453}
   - 124: {fileID: 1476383452}
   - 81: {fileID: 1476383451}
+  - 114: {fileID: 1476383456}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -380,3 +290,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1476383456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476383450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d259addcfede1143ba2135a4849f538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 10
+  waves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  heightScale: 1
+  scale: 1
