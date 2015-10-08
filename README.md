@@ -1,8 +1,8 @@
 # mario-party-remake
 my own simple remake of mario party
 
-![alt](http://snag.gy/Q1ugj.jpg)
-the state of the union
+![alt](http://i.imgur.com/rp9JpMG.gif)
+almost there
 
 
 ## License
