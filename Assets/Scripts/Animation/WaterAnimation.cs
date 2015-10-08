@@ -7,14 +7,13 @@ public class WaterAnimation : MonoBehaviour {
     private int currentFrame;
     private Mesh[] waveFrame;
     private float nextFrameChange = 0.0f;
-    public float period = 0.14f;
+    public float period = 0.13f;
 	// Use this for initialization
 	void Start () {
 
         anim_anchor = this.transform.parent.name;
         Int32.TryParse(System.Text.RegularExpressions.Regex.Replace (anim_anchor, @"[^\d]", ""), out currentFrame);
         currentFrame -= 1;
-        Debug.Log(currentFrame);
         waveFrame = new Mesh[4];
 
         waveFrame[0] = Resources.Load("Models/Environment/wave_1", typeof(Mesh)) as Mesh;
