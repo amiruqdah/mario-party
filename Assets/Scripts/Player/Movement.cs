@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+[RequireComponent(typeof(AudioSource))]
 public class Movement : MonoBehaviour {
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+    public AudioClip small_jump;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     private Vector3 prevMove;
@@ -13,6 +14,8 @@ public class Movement : MonoBehaviour {
     private Mesh jumpFrame;
     private MeshFilter meshFilter;
     private int flipDirection;
+    private AudioSource audioSource;
+
     public void Start()
     {
        
@@ -20,6 +23,7 @@ public class Movement : MonoBehaviour {
        jumpFrame = Resources.Load("Models/Mario/mario_jump", typeof(Mesh)) as Mesh;
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
+       audioSource = GetComponent<AudioSource>();
 
     }
     void Update()
@@ -47,6 +51,7 @@ public class Movement : MonoBehaviour {
             moveDirection *= speed;
             if (Input.GetButton("Jump"))
             {
+                audioSource.PlayOneShot(small_jump);
                 meshFilter.mesh = jumpFrame;
                 moveDirection.y = jumpSpeed;
             }
