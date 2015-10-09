@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour {
     private Mesh idleFrame;
     private Mesh jumpFrame;
     private MeshFilter meshFilter;
+    private HFTInput hftInput;
     private int flipDirection;
     private AudioSource audioSource;
 
@@ -24,21 +25,20 @@ public class Movement : MonoBehaviour {
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
        audioSource = GetComponent<AudioSource>();
+       hftInput = GetComponent<HFTInput>();
 
     }
     void Update()
     {
-
-
         // if moving to the right
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0 || hftInput.GetAxis("Horizontal") > 0)
         {
             //transform.localEulerAngles = new Vector3(0, 180, 0);
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
         // if moving to the left
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0 || hftInput.GetAxis("Horizontal") < 0)
         {
             //transform.localEulerAngles = new Vector3(0, 0, 0);
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
@@ -46,10 +46,10 @@ public class Movement : MonoBehaviour {
         if (controller.isGrounded)
         {
             meshFilter.mesh = idleFrame;
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+            moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), 0, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") || hftInput.GetButtonDown("Fire1"))
             {
                 audioSource.PlayOneShot(small_jump);
                 meshFilter.mesh = jumpFrame;
@@ -57,8 +57,8 @@ public class Movement : MonoBehaviour {
             }
         }
         else
-        { 
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"),moveDirection.y,0);
+        {
+            moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), moveDirection.y, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection.x *= speed;
             //moveDirection.z *= speed;

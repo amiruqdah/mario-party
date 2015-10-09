@@ -1,0 +1,153 @@
+    <!-- this is inserted into index.html by happyfuntimes -->
+    <div id="gamearea" class="fixheight">
+      <div id="buttons" class="layout-default hft-fullcenter fixheight">
+        <div id="dpads">
+            <div class="button" id="dpad1"></div>
+            <div class="button" id="dpad2"></div>
+            <div class="button" id="lrpad"></div>
+        </div>
+        <div class="button" id="buttonA"></div>
+        <div class="button" id="buttonB"></div>
+        <div id="touch">
+           <div class="hft-instruction hft-fullcenter whiteoutline noevents">
+               Touch to Control
+           </div>
+        </div>
+        <div id="orient">
+           <div class="hft-instruction hft-fullcenter whiteoutline noevents">
+               Tilt and Shake to Control
+           </div>
+        </div>
+      </div>
+    </div>
+    <div id="full">
+       <div class="hft-instruction hft-fullcenter">
+          The Game is Full<br/>Please Wait
+       </div>
+    </div>
+
+<!-- we will look this up at runtime and insert it into the buttons. -->
+    <script id="button-img" type="not-js">
+<svg class="button-img" width="100%" height="100%" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <path d="M15,19L15,20L5,20L5,19L3,19L3,18L2,18L2,17L1,17L1,15L0,15L0,5L1,5L1,3L2,3L2,2L3,2L3,1L5,1L5,0L15,0L15,1L17,1L17,2L18,2L18,3L19,3L19,5L20,5L20,15L19,15L19,17L18,17L18,18L17,18L17,19L15,19Z" style="fill:%(surfaceColor)s;"/>
+        <path d="M15,19L15,20L5,20L5,19L3,19L3,18L2,18L2,17L1,17L1,15L0,15L0,12L1,12L1,14L2,14L2,15L3,15L3,16L5,16L5,17L15,17L15,16L17,16L17,15L18,15L18,14L19,14L19,12L20,12L20,15L19,15L19,17L18,17L18,18L17,18L17,19L15,19Z" style="fill:%(edgeColor)s;"/>
+    </g>
+</svg>
+    </script>
+
+    <script id="button-pressed" type="not-js">
+<svg class="button-pressed" width="100%" height="100%" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <path d="M15,19L15,20L5,20L5,19L3,19L3,18L2,18L2,17L1,17L1,15L0,15L0,7L1,7L1,5L2,5L2,4L3,4L3,3L5,3L5,2L15,2L15,3L17,3L17,4L18,4L18,5L19,5L19,7L20,7L20,15L19,15L19,17L18,17L18,18L17,18L17,19L15,19Z" style="fill:%(surfaceColor)s;"/>
+        <path d="M15,19L15,20L5,20L5,19L3,19L3,18L2,18L2,17L1,17L1,15L0,15L0,14L1,14L1,16L2,16L2,17L3,17L3,18L5,18L5,19L15,19L15,18L17,18L17,17L18,17L18,16L19,16L19,14L20,14L20,15L19,15L19,17L18,17L18,18L17,18L17,19L15,19Z" style="fill:%(edgeColor)s;"/>
+    </g>
+</svg>
+    </script>
+
+    <script id="dpad-image" type="not-js">
+<svg width="100%" height="100%" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <path d="M26,24L26,36L13,36L13,24L0,24L0,12L13,12L13,0L26,0L26,12L39,12L39,24L26,24Z" style="fill:rgb(172,172,172);"/>
+        <path d="M26,36L13,36L13,39L26,39L26,36ZM13,24L3.55271e-15,24L3.55271e-15,27L13,27L13,24ZM39,24L26,24L26,27L39,27L39,24Z" style="fill:rgb(79,79,79);"/>
+    </g>
+</svg>
+    </script>
+
+    <script id="lr-button-00" type="not-js">
+<svg class="lr-button-00" width="100%" height="100%" viewBox="0 0 60 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <rect x="0" y="0" width="60" height="17" style="fill:rgb(200,200,200);"/>
+        <rect x="0" y="17" width="60" height="3" style="fill:rgb(92,92,92);"/>
+    </g>
+    <g id="Layer3">
+        <g>
+            <path d="M15,13L13,13L13,12L11,12L11,11L9,11L9,10L7,10L7,9L5,9L5,8L7,8L7,7L9,7L9,6L11,6L11,5L13,5L13,4L15,4L15,3L17,3L17,14L15,14L15,13Z" style="fill:rgb(180,175,175);"/>
+            <path d="M7,8L5,8L5,9L7,9L7,8ZM9,7L7,7L7,8L9,8L9,7ZM11,6L9,6L9,7L11,7L11,6ZM13,5L11,5L11,6L13,6L13,5ZM15,4L13,4L13,5L15,5L15,4ZM17,3L15,3L15,4L17,4L17,3Z" style="fill:rgb(141,137,137);"/>
+        </g>
+        <g>
+            <path d="M44,13L46,13L46,12L48,12L48,11L50,11L50,10L52,10L52,9L54,9L54,8L52,8L52,7L50,7L50,6L48,6L48,5L46,5L46,4L44,4L44,3L42,3L42,14L44,14L44,13Z" style="fill:rgb(180,175,175);"/>
+            <path d="M52,8L54,8L54,9L52,9L52,8ZM50,7L52,7L52,8L50,8L50,7ZM48,6L50,6L50,7L48,7L48,6ZM46,5L48,5L48,6L46,6L46,5ZM44,4L46,4L46,5L44,5L44,4ZM42,3L44,3L44,4L42,4L42,3Z" style="fill:rgb(141,137,137);"/>
+        </g>
+    </g>
+</svg>
+    </script>
+
+    <script id="lr-button-11" type="not-js">
+<svg class="lr-button-11" width="100%" height="100%" viewBox="0 0 60 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <rect x="0" y="2" width="60" height="17" style="fill:rgb(200,200,200);"/>
+        <rect x="0" y="19" width="60" height="1" style="fill:rgb(92,92,92);"/>
+    </g>
+    <g id="Layer3">
+        <g>
+            <path d="M15,15L13,15L13,14L11,14L11,13L9,13L9,12L7,12L7,11L5,11L5,10L7,10L7,9L9,9L9,8L11,8L11,7L13,7L13,6L15,6L15,5L17,5L17,16L15,16L15,15Z" style="fill:rgb(180,175,175);"/>
+            <path d="M7,10L5,10L5,11L7,11L7,10ZM9,9L7,9L7,10L9,10L9,9ZM11,8L9,8L9,9L11,9L11,8ZM13,7L11,7L11,8L13,8L13,7ZM15,6L13,6L13,7L15,7L15,6ZM17,5L15,5L15,6L17,6L17,5Z" style="fill:rgb(141,137,137);"/>
+        </g>
+        <g>
+            <path d="M44,15L46,15L46,14L48,14L48,13L50,13L50,12L52,12L52,11L54,11L54,10L52,10L52,9L50,9L50,8L48,8L48,7L46,7L46,6L44,6L44,5L42,5L42,16L44,16L44,15Z" style="fill:rgb(180,175,175);"/>
+            <path d="M52,10L54,10L54,11L52,11L52,10ZM50,9L52,9L52,10L50,10L50,9ZM48,8L50,8L50,9L48,9L48,8ZM46,7L48,7L48,8L46,8L46,7ZM44,6L46,6L46,7L44,7L44,6ZM42,5L44,5L44,6L42,6L42,5Z" style="fill:rgb(141,137,137);"/>
+        </g>
+    </g>
+</svg>
+    </script>
+
+    <script id="lr-button-01" type="not-js">
+<svg class="lr-button-01" width="100%" height="100%" viewBox="0 0 60 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <path d="M60,0L35,0L35,1L18,1L18,2L0,2L0,19L18,19L18,18L35,18L34.9999,17L60,17L60,0Z" style="fill:rgb(200,200,200);"/>
+        <path d="M60,17L35,17L35,18L18,18L18,19L0,19L0,20L60,20L60,17Z" style="fill:rgb(92,92,92);"/>
+    </g>
+    <g id="Layer3">
+        <g>
+            <path d="M15,15L13,15L13,14L11,14L11,13L9,13L9,12L7,12L7,11L5,11L5,10L7,10L7,9L9,9L9,8L11,8L11,7L13,7L13,6L15,6L15,5L17,5L17,16L15,16L15,15Z" style="fill:rgb(180,175,175);"/>
+            <path d="M7,10L5,10L5,11L7,11L7,10ZM9,9L7,9L7,10L9,10L9,9ZM11,8L9,8L9,9L11,9L11,8ZM13,7L11,7L11,8L13,8L13,7ZM15,6L13,6L13,7L15,7L15,6ZM17,5L15,5L15,6L17,6L17,5Z" style="fill:rgb(141,137,137);"/>
+        </g>
+        <g>
+            <path d="M44,13L46,13L46,12L48,12L48,11L50,11L50,10L52,10L52,9L54,9L54,8L52,8L52,7L50,7L50,6L48,6L48,5L46,5L46,4L44,4L44,3L42,3L42,14L44,14L44,13Z" style="fill:rgb(180,175,175);"/>
+            <path d="M52,8L54,8L54,9L52,9L52,8ZM50,7L52,7L52,8L50,8L50,7ZM48,6L50,6L50,7L48,7L48,6ZM46,5L48,5L48,6L46,6L46,5ZM44,4L46,4L46,5L44,5L44,4ZM42,3L44,3L44,4L42,4L42,3Z" style="fill:rgb(141,137,137);"/>
+        </g>
+    </g>
+</svg>
+    </script>
+
+    <script id="lr-button-10" type="not-js">
+<svg class="lr-button-10" width="100%" height="100%" viewBox="0 0 60 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <path d="M0,0L25,0L25,1L42,1L42,2L60,2L60,19L42,19L42,18L25,18L25.0001,17L0,17L0,0Z" style="fill:rgb(200,200,200);"/>
+        <path d="M0,17L25,17L25,18L42,18L42,19L60,19L60,20L0,20L0,17Z" style="fill:rgb(92,92,92);"/>
+    </g>
+    <g id="Layer3">
+        <g>
+            <path d="M45,15L47,15L47,14L49,14L49,13L51,13L51,12L53,12L53,11L55,11L55,10L53,10L53,9L51,9L51,8L49,8L49,7L47,7L47,6L45,6L45,5L43,5L43,16L45,16L45,15Z" style="fill:rgb(180,175,175);"/>
+            <path d="M53,10L55,10L55,11L53,11L53,10ZM51,9L53,9L53,10L51,10L51,9ZM49,8L51,8L51,9L49,9L49,8ZM47,7L49,7L49,8L47,8L47,7ZM45,6L47,6L47,7L45,7L45,6ZM43,5L45,5L45,6L43,6L43,5Z" style="fill:rgb(141,137,137);"/>
+        </g>
+        <g>
+            <path d="M16,13L14,13L14,12L12,12L12,11L10,11L10,10L8,10L8,9L6,9L6,8L8,8L8,7L10,7L10,6L12,6L12,5L14,5L14,4L16,4L16,3L18,3L18,14L16,14L16,13Z" style="fill:rgb(180,175,175);"/>
+            <path d="M8,8L6,8L6,9L8,9L8,8ZM10,7L8,7L8,8L10,8L10,7ZM12,6L10,6L10,7L12,7L12,6ZM14,5L12,5L12,6L14,6L14,5ZM16,4L14,4L14,5L16,5L16,4ZM18,3L16,3L16,4L18,4L18,3Z" style="fill:rgb(141,137,137);"/>
+        </g>
+    </g>
+</svg>
+    </script>
+
+    <script id="background-style" type="not-js">
+linear-gradient(
+  to bottom,
+  %(dark)s,
+  %(dark)s  10%,
+  %(light)s 10%,
+  %(light)s 12%,
+  %(dark)s  12%,
+  %(dark)s  14%,
+  %(light)s 14%,
+  %(light)s 86%,
+  %(dark)s  86%,
+  %(dark)s  88%,
+  %(light)s 88%,
+  %(light)s 90%,
+  %(dark)s  90%,
+  %(dark)s
+)
+    </script>
+<script src="3rdparty/gyronorm.complete.min.js"></script>
+

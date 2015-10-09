@@ -1,0 +1,304 @@
+/*
+ * Copyright 2014, Gregg Tavares.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *     * Neither the name of Gregg Tavares. nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+html, body {
+    background: linear-gradient(
+      to bottom,
+      #54453F,
+      #54453F 10%,
+      #FFF2D0 10%,
+      #FFF2D0 12%,
+      #54453F 12%,
+      #54453F 14%,
+      #FFF2D0 14%,
+      #FFF2D0 86%,
+      #54453F 86%,
+      #54453F 88%,
+      #FFF2D0 88%,
+      #FFF2D0 90%,
+      #54453F 90%,
+      #54453F
+    );
+}
+#buttons {
+    position: absolute;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+img {
+    width: 100%;
+    height: 100%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+.button {
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    bottom: 60px;
+    position: absolute;
+}
+#gamearea {
+    width: 100%;
+    height: 100%;
+}
+#display {
+}
+#buttons {
+    position: absolute;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#full, #touch, #orient {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#touch, #orient {
+    z-index: 5;
+    color: white;
+}
+
+#full {
+    display: none;
+    z-index: 10;
+    background-color: black;
+    color: white;
+}
+
+svg, img {
+    width: 100%;
+    height: 100%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.noevents {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.whiteoutline {
+  text-shadow:
+    0px -2px 0 #000,
+    2px -2px 0 #000,
+    2px  0px 0 #000,
+    2px  2px 0 #000,
+    0px  2px 0 #000,
+   -2px  2px 0 #000,
+   -2px  0px 0 #000,
+   -2px -2px 0 #000;
+}
+
+.button {
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    bottom: 20%;
+    position: absolute;
+}
+
+#lrpad {
+    width: 220px;
+}
+
+.layout-default #dpad1          { display: none; }
+.layout-default #dpad2          { display: none; }
+.layout-default #buttonA        { display: none; }
+.layout-default #buttonB        { display: none; }
+.layout-default #lrpad          { display: none; }
+.layout-default #touch          { display: none; }
+.layout-default #orient         { display: none; }
+
+.layout-1button #dpad1          { display: none; }
+.layout-1button #dpad2          { display: none; }
+.layout-1button #buttonA        { right: 70px; }
+.layout-1button #buttonB        { display: none; }
+.layout-1button #lrpad          { display: none; }
+.layout-1button #touch          { display: none; }
+.layout-1button #orient         { display: none; }
+
+.layout-2button #dpad1          { display: none; }
+.layout-2button #dpad2          { display: none; }
+.layout-2button #buttonA        { left:  70px;   }
+.layout-2button #buttonB        { right: 70px;  }
+.layout-2button #lrpad          { display: none; }
+.layout-2button #touch          { display: none; }
+.layout-2button #orient         { display: none; }
+
+.layout-1dpad-1button #dpad1    { left: 70px; width: 160px; height: 160px; }
+.layout-1dpad-1button #dpad2    { display: none; }
+.layout-1dpad-1button #buttonA  { right: 70px;  }
+.layout-1dpad-1button #buttonB  { display: none; }
+.layout-1dpad-1button #lrpad    { display: none; }
+.layout-1dpad-1button #touch    { display: none; }
+.layout-1dpad-1button #orient   { display: none; }
+
+.layout-1dpad-2button #dpad1    { left:  70px; width: 160px; height: 160px; }
+.layout-1dpad-2button #dpad2    { display: none; }
+.layout-1dpad-2button #buttonA  { right: 200px;  }
+.layout-1dpad-2button #buttonB  { right:  70px;  }
+.layout-1dpad-2button #lrpad    { display: none; }
+.layout-1dpad-2button #touch    { display: none; }
+.layout-1dpad-2button #orient   { display: none; }
+
+.layout-1dpad #dpad1            { left:  70px; width: 160px; height: 160px; }
+.layout-1dpad #dpad2            { display: none; }
+.layout-1dpad #buttonA          { display: none; }
+.layout-1dpad #buttonB          { display: none; }
+.layout-1dpad #lrpad            { display: none; }
+.layout-1dpad #touch            { display: none; }
+.layout-1dpad #orient           { display: none; }
+
+.layout-2dpad #dpad1            { left:  70px; width: 160px; height: 160px; }
+.layout-2dpad #dpad2            { right: 70px; width: 160px; height: 160px; }
+.layout-2dpad #buttonA          { display: none; }
+.layout-2dpad #buttonB          { display: none; }
+.layout-2dpad #lrpad            { display: none; }
+.layout-2dpad #touch            { display: none; }
+.layout-2dpad #orient           { display: none; }
+
+.layout-1lrpad-1button #dpad1   { display: none; }
+.layout-1lrpad-1button #dpad2   { display: none; }
+.layout-1lrpad-1button #buttonA { right:   30px; }
+.layout-1lrpad-1button #buttonB { display: none; }
+.layout-1lrpad-1button #lrpad   { left:    30px; }
+.layout-1lrpad-1button #touch   { display: none; }
+.layout-1lrpad-1button #orient  { display: none; }
+
+.layout-1lrpad-2button #dpad1   { display: none; }
+.layout-1lrpad-2button #dpad2   { display: none; }
+.layout-1lrpad-2button #buttonA { right: 160px;  }
+.layout-1lrpad-2button #buttonB { right:  30px;  }
+.layout-1lrpad-2button #lrpad   { left:   30px;  }
+.layout-1lrpad-2button #touch   { display: none; }
+.layout-1lrpad-2button #orient  { display: none; }
+
+.layout-1lrpad #dpad1           { display: none; }
+.layout-1lrpad #dpad2           { display: none; }
+.layout-1lrpad #buttonA         { display: none; }
+.layout-1lrpad #buttonB         { display: none; }
+.layout-1lrpad #lrpad           { left:    30px; }
+.layout-1lrpad #touch           { display: none; }
+.layout-1lrpad #orient          { display: none; }
+
+.layout-touch #dpad1           { display: none; }
+.layout-touch #dpad2           { display: none; }
+.layout-touch #buttonA         { display: none; }
+.layout-touch #buttonB         { display: none; }
+.layout-touch #lrpad           { display: none; }
+.layout-touch #touch           { display: block; }
+.layout-touch #orient          { display: none; }
+
+.layout-orient #dpad1           { display: none; }
+.layout-orient #dpad2           { display: none; }
+.layout-orient #buttonA         { display: none; }
+.layout-orient #buttonB         { display: none; }
+.layout-orient #lrpad           { display: none; }
+.layout-orient #touch           { display: none; }
+.layout-orient #orient          { display: block; }
+
+
+/*
+  and (min-device-width: 320px)
+  and (max-device-height: 567px) {
+*/
+@media only screen and (max-width: 567px) {
+
+    .layout-1button #buttonA        { right: 20px; }
+
+    .layout-2button #buttonA        { left:  20px; }
+    .layout-2button #buttonB        { right: 20px; }
+
+    .layout-1dpad-1button #dpad1    { left:  20px; width: 160px; height: 160px; }
+    .layout-1dpad-1button #buttonA  { right: 20px; }
+
+    .layout-1dpad-2button #dpad1    { left:   20px; width: 160px; height: 160px; }
+    .layout-1dpad-2button #buttonA  { right: 150px; }
+    .layout-1dpad-2button #buttonB  { right:  20px; }
+
+    .layout-1dpad #dpad1            { left:  20px; width: 160px; height: 160px; }
+
+    .layout-2dpad #dpad1            { left:  20px; width: 160px; height: 160px; }
+    .layout-2dpad #dpad2            { right: 20px; width: 160px; height: 160px; }
+
+
+    .layout-1lrpad-1button #lrpad   { left:  20px; }
+    .layout-1lrpad-1button #buttonA { right: 20px; }
+
+    .layout-1lrpad-2button #lrpad   { left:   20px; height: 80px; }
+    .layout-1lrpad-2button #buttonA { right: 130px; width: 80px;  height: 80px; }
+    .layout-1lrpad-2button #buttonB { right:  20px; width: 80px;  height: 80px; }
+
+}
+
+@media only screen and (orientation: portrait) {
+
+    .layout-1button #buttonA        { right: inherit; top: 50%; }
+
+    .layout-2button #buttonA        { left:  inherit; top: 20%; }
+    .layout-2button #buttonB        { right: inherit; bottom: 20%; }
+
+    #buttonA {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #buttonB {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
