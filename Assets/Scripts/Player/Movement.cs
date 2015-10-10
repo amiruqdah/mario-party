@@ -9,14 +9,14 @@ public class Movement : MonoBehaviour {
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     public AudioClip small_jump;
-    public Mesh[] runFrames;
     public float period = 0.13f;
+	public Mesh[] runFrames = new Mesh[4];
+	public Mesh idleFrame;
+	public Mesh jumpFrame;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     private Vector3 prevMove;
-    private Mesh idleFrame;
-    private Mesh jumpFrame;
     private MeshFilter meshFilter;
     private HFTInput hftInput;
     private int flipDirection;
@@ -31,8 +31,8 @@ public class Movement : MonoBehaviour {
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);
        currentFrame -= 1;
 
-       idleFrame = Resources.Load("Models/Mario/mario_idle", typeof(Mesh)) as Mesh;
-       jumpFrame = Resources.Load("Models/Mario/mario_jump", typeof(Mesh)) as Mesh;
+       //idleFrame = Resources.Load("Models/Mario/mario_idle", typeof(Mesh)) as Mesh;
+       //jumpFrame = Resources.Load("Models/Mario/mario_jump", typeof(Mesh)) as Mesh;
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
        audioSource = GetComponent<AudioSource>();
@@ -41,11 +41,11 @@ public class Movement : MonoBehaviour {
        meshFilter.mesh = jumpFrame;
        moveDirection.y = jumpSpeed;
 
-       runFrames = new Mesh[4];
-       runFrames[0] = Resources.Load("Models/Mario/mario_run_frame_1", typeof(Mesh)) as Mesh;
-       runFrames[1] = Resources.Load("Models/Mario/mario_run_frame_2", typeof(Mesh)) as Mesh;
-       runFrames[2] = Resources.Load("Models/Mario/mario_run_frame_3", typeof(Mesh)) as Mesh;
-       runFrames[3] = Resources.Load("Models/Mario/mario_run_frame_4", typeof(Mesh)) as Mesh;
+       //runFrames = new Mesh[4];
+       //runFrames[0] = Resources.Load("Models/Mario/mario_run_frame_1", typeof(Mesh)) as Mesh;
+       //runFrames[1] = Resources.Load("Models/Mario/mario_run_frame_2", typeof(Mesh)) as Mesh;
+       //runFrames[2] = Resources.Load("Models/Mario/mario_run_frame_3", typeof(Mesh)) as Mesh;
+       //runFrames[3] = Resources.Load("Models/Mario/mario_run_frame_4", typeof(Mesh)) as Mesh;
 
 
 
