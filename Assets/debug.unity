@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: -192292491, guid: bbe902286416048be85d95b9006e4302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawnForPlayer: {fileID: 156344, guid: db0d62e8bf58f4c8783ba4115c2ae1c9,
+  prefabToSpawnForPlayer: {fileID: 140276, guid: db0d62e8bf58f4c8783ba4115c2ae1c9,
     type: 2}
   gameId: 
   showMessages: 0
