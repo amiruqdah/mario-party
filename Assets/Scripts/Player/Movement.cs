@@ -25,7 +25,6 @@ public class Movement : MonoBehaviour {
     private bool isStanding;
     private int currentFrame;
 
-
     public void Start()
     {
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);

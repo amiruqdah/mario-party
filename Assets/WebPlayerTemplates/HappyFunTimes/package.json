@@ -1,14 +1,14 @@
 {
   "dependencies": {},
-  "description": "A super simple 2D platform game in Unity.",
+  "description": "A Multi-Controller Getting Started HappyFunTimes sample",
   "happyFunTimes": {
     "apiVersion": "1.14.0",
     "category": "example",
-    "gameId": "unity2dplatformer",
+    "gameId": "hft-unity-gamepad",
     "gameType": "Unity3D",
     "minPlayers": 1
   },
-  "name": "Unity 2D Platformer",
+  "name": "HappyFunTimes Gamepad",
   "private": false,
-  "version": "0.0.7"
+  "version": "0.0.15"
 }
