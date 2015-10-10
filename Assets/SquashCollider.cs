@@ -7,7 +7,12 @@ public class SquashCollider : MonoBehaviour
     {
         var normal = hit.normal;
 
-         Debug.Log("test");
-        
+        if (hit.gameObject.tag == "Player")
+        {
+            if (hit.normal.y > 0.5) 
+            {
+                Debug.Log("test");
+            }
+        }
     }
 }
