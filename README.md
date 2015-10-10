@@ -5,6 +5,7 @@ Day 1-2:
 almost there
 Day 3: 
 ![alt](http://i.imgur.com/1z5gHIK.gif)
+
 some run animations and luigi (also a little bit of hft)
 
 ## License
