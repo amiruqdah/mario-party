@@ -4,6 +4,7 @@ Day 1-2:
 ![alt](http://i.imgur.com/rp9JpMG.gif)
 almost there
 Day 3: 
+
 ![alt](http://i.imgur.com/1z5gHIK.gif)
 
 some run animations and luigi (also a little bit of hft)
