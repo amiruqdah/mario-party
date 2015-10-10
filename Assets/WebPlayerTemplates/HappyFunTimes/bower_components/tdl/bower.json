@@ -1,0 +1,38 @@
+{
+  "name": "tdl",
+  "version": "0.0.8",
+  "authors": [
+    {
+      "name": "Gregg Tavares",
+      "email": "github@greggman.com",
+      "homepage": "http://games.greggman.com"
+    }
+  ],
+  "description": "A JavaScript library for WebGL",
+  "main": "tdl/base.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "webgl",
+    "tdl"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/greggman/tdl",
+  "repository": "git://github.com/greggman/tdl.git",
+  "ignore": [
+    "**/.*",
+    "*.md",
+    "Gruntfile.js",
+    "package.json",
+    "bower.json",
+    "node_modules",
+    "docs",
+    "build",
+    "example",
+    "js",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

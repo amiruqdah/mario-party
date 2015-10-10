@@ -1,0 +1,26 @@
+{
+  "name": "jumpjump",
+  "version": "0.0.2",
+  "homepage": "https://github.com/greggman/hft-jumpjump",
+  "authors": [
+    "Gregg Tavares <github@greggman.com>"
+  ],
+  "description": "A game for HappyFunTimes",
+  "main": "gameview.html",
+  "keywords": [
+    "game",
+    "HappyFunTimes"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "hft-utils": "https://github.com/greggman/hft-utils.git#0.7.0"
+  }
+}

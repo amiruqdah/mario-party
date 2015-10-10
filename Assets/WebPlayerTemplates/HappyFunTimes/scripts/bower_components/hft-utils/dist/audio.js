@@ -250,31 +250,6 @@ define([
       return s;
     }.bind(this);
 
-    this.loadSounds = function(sounds, opt_callback) {
-      var soundsPending = 1;
-      var soundsLoaded = function() {
-        --soundsPending;
-        if (soundsPending == 0 && opt_callback) {
-          opt_callback();
-        }
-      };
-
-      Object.keys(sounds).forEach(function(sound) {
-        var data = sounds[sound];
-        ++soundsPending;
-        if (data.jsfx) {
-          this.makeJSFXSound(sound, data.jsfx, data.samples, soundsLoaded);
-        } else {
-          this.loadSound(sound, data.filename, data.samples, soundsLoaded);
-        }
-      }.bind(this));
-
-      // so that we generate a callback even if there are no sounds.
-      // That way users don't have to restructure their code if they have no sounds or if they
-      // disable sounds by passing none in.
-      setTimeout(soundsLoaded, 0);
-    };
-
     this.init = function(sounds) {
       var a = new Audio()
       g_canPlayOgg = a.canPlayType("audio/ogg");
@@ -299,9 +274,30 @@ define([
         g_createFromJSFXFn = AudioTagJSFX;
       }
 
+      var soundsPending = 1;
+      var soundsLoaded = function() {
+        --soundsPending;
+        if (soundsPending == 0 && options.callback) {
+          options.callback();
+        }
+      };
+
       if (sounds) {
-        this.loadSounds(sounds);
+        Object.keys(sounds).forEach(function(sound) {
+          var data = sounds[sound];
+          ++soundsPending;
+          if (data.jsfx) {
+            this.makeJSFXSound(sound, data.jsfx, data.samples, soundsLoaded);
+          } else {
+            this.loadSound(sound, data.filename, data.samples, soundsLoaded);
+          }
+        }.bind(this));
       }
+
+      // so that we generate a callback even if there are no sounds.
+      // That way users don't have to restructure their code if they have no sounds or if they
+      // disable sounds by passing none in.
+      setTimeout(soundsLoaded, 0);
 
       if (webAudioAPI) {
         setupGesture();

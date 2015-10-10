@@ -41,6 +41,11 @@ public class Movement : MonoBehaviour {
        meshFilter.mesh = jumpFrame;
        moveDirection.y = jumpSpeed;
 
+	   GameObject[] spawners = GameObject.FindGameObjectsWithTag("Respawn");
+	   int spawnInd = (int)(spawners.Length * Math.Abs (UnityEngine.Random.value - 0.000001));
+	   transform.position = spawners[spawnInd].transform.position + Vector3.up * 2.0F;
+		Debug.Log (transform.position);
+
        //runFrames = new Mesh[4];
        //runFrames[0] = Resources.Load("Models/Mario/mario_run_frame_1", typeof(Mesh)) as Mesh;
        //runFrames[1] = Resources.Load("Models/Mario/mario_run_frame_2", typeof(Mesh)) as Mesh;
