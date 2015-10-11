@@ -224,6 +224,29 @@ public class HFTGamepad : MonoBehaviour {
     SendColor();
   }
 
+	//Second copy for respawning
+	public void InitializeNetPlayer(NetPlayer m_netPlayer) {
+		m_netPlayer.OnDisconnect += Remove;
+
+		//Keep all of this?
+
+		// Setup events for the different messages.
+		m_netPlayer.RegisterCmdHandler<MessageButton>("button", HandleButton);
+		m_netPlayer.RegisterCmdHandler<MessageDPad>("dpad", HandleDPad);
+		m_netPlayer.RegisterCmdHandler<MessageOrient>("orient", HandleOrient);
+		m_netPlayer.RegisterCmdHandler<MessageAccel>("accel", HandleAccel);
+		m_netPlayer.RegisterCmdHandler<MessageRot>("rot", HandleRot);
+		m_netPlayer.RegisterCmdHandler<MessageTouch>("touch", HandleTouch);
+		
+		m_netPlayer.OnNameChange += ChangeName;
+		
+		// If the controller is showing the player "game full"
+		// then tell it can play.
+		m_netPlayer.SendCmd("play");
+		SendControllerOptions();
+		SendColor();
+	}
+
   void Awake()
   {
     SetDefaultColor();
@@ -236,6 +259,11 @@ public class HFTGamepad : MonoBehaviour {
       m_netPlayer.SendCmd("color", new MessageColor(m_color));
     }
   }
+
+	NetPlayer getNetPlayer()
+	{
+		return m_netPlayer;
+	}
 
   void SetDefaultColor() {
     int colorNdx = s_colorCount++;
