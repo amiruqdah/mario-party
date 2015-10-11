@@ -11,10 +11,8 @@ public class GeneralAnimation : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
-		anim_anchor = this.transform.parent.name;
-		Int32.TryParse(System.Text.RegularExpressions.Regex.Replace (anim_anchor, @"[^\d]", ""), out currentFrame);
-		currentFrame -= 1;
+
+        currentFrame = 0;
 		
 	}
 	

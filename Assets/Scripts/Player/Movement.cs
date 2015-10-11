@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 using System.Collections;
 using System;
 
@@ -13,6 +14,7 @@ public class Movement : MonoBehaviour {
 	public Mesh[] runFrames = new Mesh[4];
 	public Mesh idleFrame;
 	public Mesh jumpFrame;
+    public Color pipeSpawnColor;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -30,8 +32,6 @@ public class Movement : MonoBehaviour {
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);
        currentFrame -= 1;
 
-       //idleFrame = Resources.Load("Models/Mario/mario_idle", typeof(Mesh)) as Mesh;
-       //jumpFrame = Resources.Load("Models/Mario/mario_jump", typeof(Mesh)) as Mesh;
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
        audioSource = GetComponent<AudioSource>();
@@ -39,19 +39,24 @@ public class Movement : MonoBehaviour {
 
        meshFilter.mesh = jumpFrame;
        moveDirection.y = jumpSpeed;
+       
 
+     
 	   GameObject[] spawners = GameObject.FindGameObjectsWithTag("Respawn");
 	   int spawnInd = (int)(spawners.Length * Math.Abs (UnityEngine.Random.value - 0.000001));
 	   transform.position = spawners[spawnInd].transform.position + Vector3.up * 2.0F;
+       spawners[spawnInd].transform.GetChild(0).GetComponent<Renderer>().material.DOColor(pipeSpawnColor, 0.5f);
+        // set pipe spawn color
+       //spawners[spawnInd].transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", pipeSpawnColor);
 
-       //runFrames = new Mesh[4];
-       //runFrames[0] = Resources.Load("Models/Mario/mario_run_frame_1", typeof(Mesh)) as Mesh;
-       //runFrames[1] = Resources.Load("Models/Mario/mario_run_frame_2", typeof(Mesh)) as Mesh;
-       //runFrames[2] = Resources.Load("Models/Mario/mario_run_frame_3", typeof(Mesh)) as Mesh;
-       //runFrames[3] = Resources.Load("Models/Mario/mario_run_frame_4", typeof(Mesh)) as Mesh;
-
-
-
+       // Grab a free Sequence to use
+       Sequence pipeSequence = DOTween.Sequence();
+       pipeSequence.Append(spawners[spawnInd].transform.DOScale(0.05f, 0.5f).SetEase(Ease.InOutBounce).SetLoops(1));
+       pipeSequence.Append(spawners[spawnInd].transform.DOScale(0.08597419f, 0.3f).SetEase(Ease.InOutElastic).SetLoops(1));
+      // spawners[spawnInd].transform.DOScale(spawners[spawnInd].transform.localScale.x, 0.2f)
+     
+       transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
+       
     }
 
     void Update()
