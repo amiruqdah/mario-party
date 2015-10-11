@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357dfb69d56264c799805b57a4b8bf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mario: {fileID: 180930, guid: db0d62e8bf58f4c8783ba4115c2ae1c9, type: 2}
-  luigi: {fileID: 149480, guid: ee536542a12874501807cbba6dc8395b, type: 2}
-  purpleMario: {fileID: 168620, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
-  yellowLuigi: {fileID: 165290, guid: a10418aa2fd3aa94a80960d1ea87a466, type: 2}
+  mario: {fileID: 181372, guid: db0d62e8bf58f4c8783ba4115c2ae1c9, type: 2}
+  luigi: {fileID: 120074, guid: ee536542a12874501807cbba6dc8395b, type: 2}
+  purpleMario: {fileID: 135184, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
+  yellowLuigi: {fileID: 148936, guid: a10418aa2fd3aa94a80960d1ea87a466, type: 2}
   flyGuy: {fileID: 146438, guid: 8dfb522ec801e2b47b2e2ccd3859fdf0, type: 2}
 --- !u!1001 &100100000
 Prefab:
@@ -58,19 +58,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: yellowLuigi
       value: 
-      objectReference: {fileID: 165290, guid: a10418aa2fd3aa94a80960d1ea87a466, type: 2}
+      objectReference: {fileID: 148936, guid: a10418aa2fd3aa94a80960d1ea87a466, type: 2}
     - target: {fileID: 0}
       propertyPath: mario
       value: 
-      objectReference: {fileID: 180930, guid: db0d62e8bf58f4c8783ba4115c2ae1c9, type: 2}
+      objectReference: {fileID: 181372, guid: db0d62e8bf58f4c8783ba4115c2ae1c9, type: 2}
     - target: {fileID: 0}
       propertyPath: luigi
       value: 
-      objectReference: {fileID: 149480, guid: ee536542a12874501807cbba6dc8395b, type: 2}
+      objectReference: {fileID: 120074, guid: ee536542a12874501807cbba6dc8395b, type: 2}
     - target: {fileID: 0}
       propertyPath: purpleMario
       value: 
-      objectReference: {fileID: 168620, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
+      objectReference: {fileID: 135184, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190922}

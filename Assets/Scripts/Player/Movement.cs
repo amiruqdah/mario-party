@@ -15,9 +15,11 @@ public class Movement : MonoBehaviour {
 	public Mesh[] runFrames = new Mesh[4];
 	public Mesh idleFrame;
 	public Mesh jumpFrame;
+    public Mesh death_frame;
     public Color pipeSpawnColor;
 	public string pipeTag;
 	public bool growTween;
+    public AudioClip death_sound;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -28,6 +30,7 @@ public class Movement : MonoBehaviour {
     private AudioSource audioSource;
     private float nextFrameChange = 0.0f;
     private bool isStanding;
+    public bool isDead = false;
     private int currentFrame;
 
     public void Start()
@@ -97,9 +100,11 @@ public class Movement : MonoBehaviour {
             // standing still frame is now displayed
             if(isStanding)
                 meshFilter.mesh = idleFrame;
+
             moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), 0, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
+
             if (Input.GetButton("Jump") || hftInput.GetButtonDown("Fire1"))
             {
                 audioSource.PlayOneShot(small_jump);
@@ -116,15 +121,20 @@ public class Movement : MonoBehaviour {
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
-
-        if (Time.time > nextFrameChange){
-            nextFrameChange += period;
-            if (isStanding == false &&
-                controller.isGrounded == true)
+        
+        if (isDead != true)
+        {
+            if (Time.time > nextFrameChange)
+            {
+                nextFrameChange += period;
+                if (isStanding == false &&
+                    controller.isGrounded == true)
                 {
                     runAnimation();
                 }
             }
+        }
+
         }
 
     private void runAnimation()
@@ -136,4 +146,39 @@ public class Movement : MonoBehaviour {
 
         this.GetComponent<MeshFilter>().mesh = runFrames[currentFrame];
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var normal = hit.normal;
+
+        if (hit.gameObject.tag == "Death")
+        {
+            isDead = true;
+            this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+            this.GetComponent<AudioSource>().PlayOneShot(death_sound);
+            //this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+            Destroy(this.GetComponent<Movement>());
+            this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1f), 5f, false).OnComplete(this.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
+            this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+        }
+
+        if (hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
+        {
+            if (hit.normal.y > 0.7)
+            {
+                hit.gameObject.GetComponent<Movement>().isDead = true;
+                hit.gameObject.GetComponent<MeshFilter>().mesh = hit.gameObject.GetComponent<Movement>().death_frame;
+
+                Sequence deathAnimation = DOTween.Sequence();
+                hit.gameObject.GetComponent<AudioSource>().PlayOneShot(death_sound);
+                deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x,hit.transform.position.y + 3f), 0.3f, 0, 0.4f, false).SetEase(Ease.InExpo));
+                deathAnimation.Append(hit.gameObject.transform.DOMoveY(-12,0.4f,false).SetEase(Ease.Linear));
+                deathAnimation.OnComplete(hit.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
+            }
+        }
+    }
+
+
+
+
 }
