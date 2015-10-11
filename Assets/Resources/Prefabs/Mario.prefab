@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 4300000, guid: ebec724d79e93b74f8876fd56d79ce99, type: 3}
   idleFrame: {fileID: 4300000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
   jumpFrame: {fileID: 4300000, guid: 763fc404fce477d4abd493a654d5b184, type: 3}
+  pipeSpawnColor: {r: .698529422, g: 0, b: 0, a: 1}
 --- !u!114 &11440174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,6 +225,34 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: controllerOptions.controllerType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.r
+      value: .698529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
