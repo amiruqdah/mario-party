@@ -1,46 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &140276
+--- !u!1 &163738
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454312}
-  - 33: {fileID: 3386954}
-  - 23: {fileID: 2334542}
-  - 114: {fileID: 11437018}
-  - 143: {fileID: 14303624}
-  - 114: {fileID: 11440174}
-  - 114: {fileID: 11431172}
-  - 82: {fileID: 8247680}
-  - 114: {fileID: 11411372}
+  - 4: {fileID: 494768}
+  - 33: {fileID: 3325934}
+  - 23: {fileID: 2303780}
+  - 114: {fileID: 11404086}
+  - 143: {fileID: 14363620}
+  - 114: {fileID: 11498032}
+  - 114: {fileID: 11428696}
+  - 82: {fileID: 8214238}
+  - 114: {fileID: 11455112}
   m_Layer: 0
-  m_Name: Mario
-  m_TagString: Mario
+  m_Name: PurpleMario
+  m_TagString: PurpleMario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454312
+--- !u!4 &494768
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.35189009, y: 2.31467247, z: .210041523}
+  m_LocalPosition: {x: -.660876036, y: 3.97596312, z: -.433404922}
   m_LocalScale: {x: .325020641, y: .325021267, z: .325021267}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2334542
+--- !u!23 &2303780
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,19 +59,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3386954
+--- !u!33 &3325934
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
-  m_Mesh: {fileID: 4300000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
---- !u!82 &8247680
+  m_GameObject: {fileID: 163738}
+  m_Mesh: {fileID: 4300000, guid: d749e07df9ffbd5409906d4d3e885346, type: 3}
+--- !u!82 &8214238
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -136,34 +136,12 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11411372
+--- !u!114 &11404086
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f87dea5346ed148bca43cc5e2fa640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11431172
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82acc53909bd24e7b98f85698be7a9bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11437018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e5424eaf531c8541b75f70629a25fb6, type: 3}
@@ -173,24 +151,46 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 25.7000008
   small_jump: {fileID: 8300000, guid: 771615d9760aabd4ab4ae71c22cb48fe, type: 3}
-  spawn_sound: {fileID: 8300000, guid: 30179f3f26f3b438fb3db3978ca03257, type: 3}
+  spawn_sound: {fileID: 8300000, guid: 90b332f96ca614b20a4c286ec6262748, type: 3}
   period: .129999995
   runFrames:
-  - {fileID: 4300000, guid: e29ba015a796aec4088cf63814768d5c, type: 3}
-  - {fileID: 4300000, guid: 8ba6e69d82015084eb60ff5f0211f23d, type: 3}
-  - {fileID: 4300000, guid: cacddeccbbee21244aeb61b40cf8fa52, type: 3}
-  - {fileID: 4300000, guid: ebec724d79e93b74f8876fd56d79ce99, type: 3}
-  idleFrame: {fileID: 4300000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
-  jumpFrame: {fileID: 4300000, guid: 763fc404fce477d4abd493a654d5b184, type: 3}
-  pipeSpawnColor: {r: 1, g: 0, b: 0, a: 1}
-  pipeTag: RedMarioSpawn
-  growTween: 1
---- !u!114 &11440174
+  - {fileID: 4300000, guid: 37ce4e72b2ad51e429c0dc4a5ad2fd5f, type: 3}
+  - {fileID: 4300000, guid: a7ccc873321af6e4195e7aee73d48046, type: 3}
+  - {fileID: 4300000, guid: 362d22c42b253334fa0a42c861f43fcf, type: 3}
+  - {fileID: 4300000, guid: 41be692fc4cffa8429a1b3998b25272c, type: 3}
+  idleFrame: {fileID: 4300000, guid: d749e07df9ffbd5409906d4d3e885346, type: 3}
+  jumpFrame: {fileID: 4300000, guid: 045b8f222d1d52a4fbb373ef74add270, type: 3}
+  pipeSpawnColor: {r: .572413921, g: 0, b: 1, a: 1}
+  pipeTag: PurpleMarioSpawn
+  growTween: 0
+--- !u!114 &11428696
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82acc53909bd24e7b98f85698be7a9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11455112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f87dea5346ed148bca43cc5e2fa640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11498032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb7f9d9175fe6473ba0ba1534822e14b, type: 3}
@@ -201,12 +201,12 @@ MonoBehaviour:
     provideOrientation: 1
     provideAcceleration: 1
     provideRotationRate: 0
---- !u!143 &14303624
+--- !u!143 &14363620
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140276}
+  m_GameObject: {fileID: 163738}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -226,24 +226,16 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: controllerOptions.controllerType
-      value: 2
+      propertyPath: pipeTag
+      value: PurpleMarioSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.z
-      value: 0
+      propertyPath: m_TagString
+      value: PurpleMario
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.r
-      value: 1
+      value: .572413921
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.g
@@ -251,33 +243,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: pipeTag
-      value: RedMarioSpawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fastTween
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: growTween
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: spawn_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 30179f3f26f3b438fb3db3978ca03257, type: 3}
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Mario
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 140276}
+  m_RootGameObject: {fileID: 163738}
   m_IsPrefabParent: 1

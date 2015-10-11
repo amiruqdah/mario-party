@@ -8,6 +8,10 @@ TagManager:
   - GreenLuigiSpawn
   - PurpleMarioSpawn
   - YellowLuigiSpawn
+  - Mario
+  - Luigi
+  - PurpleMario
+  - YellowLuigi
   layers:
   - Default
   - TransparentFX

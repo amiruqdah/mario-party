@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &190922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444328}
+  - 114: {fileID: 11482186}
+  m_Layer: 0
+  m_Name: SpawnHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444328
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.29670024, y: 3.05533743, z: 7.91130161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11482186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357dfb69d56264c799805b57a4b8bf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mario: {fileID: 140276, guid: db0d62e8bf58f4c8783ba4115c2ae1c9, type: 2}
+  luigi: {fileID: 193082, guid: ee536542a12874501807cbba6dc8395b, type: 2}
+  purpleMario: {fileID: 163738, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
+  yellowLuigi: {fileID: 0}
+  flyGuy: {fileID: 146438, guid: 8dfb522ec801e2b47b2e2ccd3859fdf0, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: flyGuy
+      value: 
+      objectReference: {fileID: 146438, guid: 8dfb522ec801e2b47b2e2ccd3859fdf0, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 190922}
+  m_IsPrefabParent: 1

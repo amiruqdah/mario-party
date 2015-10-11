@@ -5,7 +5,9 @@ public class CharacterDecider : MonoBehaviour {
 
 	public GameObject mario;
 	public GameObject luigi;
-	public GameObject goonba;
+	public GameObject purpleMario;
+	public GameObject yellowLuigi;
+	public GameObject flyGuy;
 
 	// Use this for initialization
 	void Start () 
@@ -18,9 +20,17 @@ public class CharacterDecider : MonoBehaviour {
 		{
 			Instantiate(luigi);
 		} 
+		else if (!GameObject.FindWithTag ("PurpleMario")) 
+		{
+			Instantiate(purpleMario);
+		} 
+//		else if (!GameObject.FindWithTag ("YellowLuigi")) 
+//		{
+//			Instantiate(yellowLuigi);
+//		} 
 		else 
 		{
-			Instantiate(goonba);
+			Instantiate(flyGuy);
 		}
 
 		Destroy (this.gameObject);
