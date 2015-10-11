@@ -10,11 +10,14 @@ public class Movement : MonoBehaviour {
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     public AudioClip small_jump;
+	public AudioClip spawn_sound;
     public float period = 0.13f;
 	public Mesh[] runFrames = new Mesh[4];
 	public Mesh idleFrame;
 	public Mesh jumpFrame;
     public Color pipeSpawnColor;
+	public string pipeTag;
+	public bool growTween;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -38,21 +41,30 @@ public class Movement : MonoBehaviour {
        hftInput = GetComponent<HFTInput>();
 
        meshFilter.mesh = jumpFrame;
-       moveDirection.y = jumpSpeed;
-       
-
      
-	   GameObject[] spawners = GameObject.FindGameObjectsWithTag("Respawn");
-	   int spawnInd = (int)(spawners.Length * Math.Abs (UnityEngine.Random.value - 0.000001));
-	   transform.position = spawners[spawnInd].transform.position + Vector3.up * 2.0F;
-       spawners[spawnInd].transform.GetChild(0).GetComponent<Renderer>().material.DOColor(pipeSpawnColor, 0.5f);
+	   GameObject spawner = GameObject.FindWithTag(pipeTag);
+	   transform.position = spawner.transform.position + spawner.transform.up * 2.0F;
+		moveDirection.y = jumpSpeed * spawner.transform.up.y;
+       spawner.transform.GetChild(0).GetComponent<Renderer>().material.DOColor(pipeSpawnColor, 0.5f);
         // set pipe spawn color
        //spawners[spawnInd].transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", pipeSpawnColor);
 
        // Grab a free Sequence to use
        Sequence pipeSequence = DOTween.Sequence();
-       pipeSequence.Append(spawners[spawnInd].transform.DOScale(0.05f, 0.5f).SetEase(Ease.InOutBounce).SetLoops(1));
-       pipeSequence.Append(spawners[spawnInd].transform.DOScale(0.08597419f, 0.3f).SetEase(Ease.InOutElastic).SetLoops(1));
+		if (growTween) 
+		{
+			pipeSequence.Append(spawner.transform.DOScale(0.12f, 0.15f).SetEase(Ease.InOutBounce).SetLoops(1));
+			pipeSequence.Append(spawner.transform.DOScale(0.08597419f, 0.5f).SetEase(Ease.InOutElastic).SetLoops(1));
+		} 
+		else 
+		{
+			pipeSequence.Append(spawner.transform.DOScale(0.05f, 0.5f).SetEase(Ease.InOutBounce).SetLoops(1));
+			pipeSequence.Append(spawner.transform.DOScale(0.08597419f, 0.3f).SetEase(Ease.InOutElastic).SetLoops(1));
+		}
+
+		audioSource.PlayOneShot (spawn_sound);
+
+
       // spawners[spawnInd].transform.DOScale(spawners[spawnInd].transform.localScale.x, 0.2f)
      
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);

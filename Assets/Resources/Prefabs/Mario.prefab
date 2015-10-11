@@ -173,6 +173,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 25.7000008
   small_jump: {fileID: 8300000, guid: 771615d9760aabd4ab4ae71c22cb48fe, type: 3}
+  spawn_sound: {fileID: 8300000, guid: 90b332f96ca614b20a4c286ec6262748, type: 3}
   period: .129999995
   runFrames:
   - {fileID: 4300000, guid: e29ba015a796aec4088cf63814768d5c, type: 3}
@@ -181,7 +182,9 @@ MonoBehaviour:
   - {fileID: 4300000, guid: ebec724d79e93b74f8876fd56d79ce99, type: 3}
   idleFrame: {fileID: 4300000, guid: 76cbaf3231082174bafc8408b2126cb9, type: 3}
   jumpFrame: {fileID: 4300000, guid: 763fc404fce477d4abd493a654d5b184, type: 3}
-  pipeSpawnColor: {r: .698529422, g: 0, b: 0, a: 1}
+  pipeSpawnColor: {r: 1, g: 0, b: 0, a: 1}
+  pipeTag: RedMarioSpawn
+  growTween: 0
 --- !u!114 &11440174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +243,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.r
-      value: .698529422
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.g
@@ -254,6 +257,22 @@ Prefab:
       propertyPath: pipeSpawnColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeTag
+      value: RedMarioSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fastTween
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: growTween
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawn_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 90b332f96ca614b20a4c286ec6262748, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140276}

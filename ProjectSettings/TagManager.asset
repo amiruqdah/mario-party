@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RedMarioSpawn
+  - GreenLuigiSpawn
+  - PurpleMarioSpawn
+  - YellowLuigiSpawn
   layers:
   - Default
   - TransparentFX
