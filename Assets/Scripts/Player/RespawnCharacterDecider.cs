@@ -16,29 +16,36 @@ public class RespawnCharacterDecider : MonoBehaviour {
 		myPlayer = netPlayer;
 	}
 	
-	// Use this for initialization
 	void Start () 
 	{
+		
+	}
+	
+	void InitializeNetPlayer(NetPlayer m_netPlayer) 
+	{	
+		GameObject newChar;
 		if (!GameObject.FindWithTag ("Mario")) 
 		{
-			GameObject temp = Instantiate(mario);
+			newChar = Instantiate(mario);
 		} 
 		else if (!GameObject.FindWithTag ("Luigi")) 
 		{
-			Instantiate(luigi);
+			newChar = Instantiate(luigi);
 		} 
 		else if (!GameObject.FindWithTag ("PurpleMario")) 
 		{
-			Instantiate(purpleMario);
+			newChar = Instantiate(purpleMario);
 		} 
-		//		else if (!GameObject.FindWithTag ("YellowLuigi")) 
-		//		{
-		//			Instantiate(yellowLuigi);
-		//		} 
+		else if (!GameObject.FindWithTag ("YellowLuigi")) 
+		{
+			newChar = Instantiate(yellowLuigi);
+		} 
 		else 
 		{
-			Instantiate(flyGuy);
+			newChar = Instantiate(flyGuy);
 		}
+		
+		newChar.GetComponent<HFTGamepad> ().InitializeNetPlayer (m_netPlayer);
 		
 		Destroy (this.gameObject);
 	}

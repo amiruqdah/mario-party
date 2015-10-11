@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerOptions:
-    controllerType: 2
+    controllerType: 6
     provideOrientation: 1
     provideAcceleration: 1
     provideRotationRate: 0
@@ -227,7 +227,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: controllerOptions.controllerType
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x

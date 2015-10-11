@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HappyFunTimes;
 
 public class CharacterDecider : MonoBehaviour {
 
@@ -12,26 +13,36 @@ public class CharacterDecider : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+
+	}
+
+	void InitializeNetPlayer(SpawnInfo spawnInfo) 
+	{
+		NetPlayer m_netPlayer = spawnInfo.netPlayer;
+
+		GameObject newChar;
 		if (!GameObject.FindWithTag ("Mario")) 
 		{
-			Instantiate(mario);
+			newChar = Instantiate(mario);
 		} 
 		else if (!GameObject.FindWithTag ("Luigi")) 
 		{
-			Instantiate(luigi);
+			newChar = Instantiate(luigi);
 		} 
 		else if (!GameObject.FindWithTag ("PurpleMario")) 
 		{
-			Instantiate(purpleMario);
+			newChar = Instantiate(purpleMario);
 		} 
-//		else if (!GameObject.FindWithTag ("YellowLuigi")) 
-//		{
-//			Instantiate(yellowLuigi);
-//		} 
+		else if (!GameObject.FindWithTag ("YellowLuigi")) 
+		{
+			newChar = Instantiate(yellowLuigi);
+		} 
 		else 
 		{
-			Instantiate(flyGuy);
+			newChar = Instantiate(flyGuy);
 		}
+
+		newChar.GetComponent<HFTGamepad> ().InitializeNetPlayer (m_netPlayer);
 
 		Destroy (this.gameObject);
 	}

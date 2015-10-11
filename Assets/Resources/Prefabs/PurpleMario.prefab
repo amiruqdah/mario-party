@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerOptions:
-    controllerType: 2
+    controllerType: 6
     provideOrientation: 1
     provideAcceleration: 1
     provideRotationRate: 0
@@ -248,6 +248,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: pipeSpawnColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: controllerOptions.controllerType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -203,26 +203,26 @@ public class HFTGamepad : MonoBehaviour {
     public float g = 0.0f;
   }
 
-  void InitializeNetPlayer(SpawnInfo spawnInfo) {
-    m_netPlayer = spawnInfo.netPlayer;
-    m_netPlayer.OnDisconnect += Remove;
-
-    // Setup events for the different messages.
-    m_netPlayer.RegisterCmdHandler<MessageButton>("button", HandleButton);
-    m_netPlayer.RegisterCmdHandler<MessageDPad>("dpad", HandleDPad);
-    m_netPlayer.RegisterCmdHandler<MessageOrient>("orient", HandleOrient);
-    m_netPlayer.RegisterCmdHandler<MessageAccel>("accel", HandleAccel);
-    m_netPlayer.RegisterCmdHandler<MessageRot>("rot", HandleRot);
-    m_netPlayer.RegisterCmdHandler<MessageTouch>("touch", HandleTouch);
-
-    m_netPlayer.OnNameChange += ChangeName;
-
-    // If the controller is showing the player "game full"
-    // then tell it can play.
-    m_netPlayer.SendCmd("play");
-    SendControllerOptions();
-    SendColor();
-  }
+//  void InitializeNetPlayer(SpawnInfo spawnInfo) {
+//    m_netPlayer = spawnInfo.netPlayer;
+//    m_netPlayer.OnDisconnect += Remove;
+//
+//    // Setup events for the different messages.
+//    m_netPlayer.RegisterCmdHandler<MessageButton>("button", HandleButton);
+//    m_netPlayer.RegisterCmdHandler<MessageDPad>("dpad", HandleDPad);
+//    m_netPlayer.RegisterCmdHandler<MessageOrient>("orient", HandleOrient);
+//    m_netPlayer.RegisterCmdHandler<MessageAccel>("accel", HandleAccel);
+//    m_netPlayer.RegisterCmdHandler<MessageRot>("rot", HandleRot);
+//    m_netPlayer.RegisterCmdHandler<MessageTouch>("touch", HandleTouch);
+//
+//    m_netPlayer.OnNameChange += ChangeName;
+//
+//    // If the controller is showing the player "game full"
+//    // then tell it can play.
+//    m_netPlayer.SendCmd("play");
+//    SendControllerOptions();
+//    SendColor();
+//  }
 
 	//Second copy for respawning
 	public void InitializeNetPlayer(NetPlayer m_netPlayer) {
