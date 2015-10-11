@@ -42,7 +42,7 @@ public class CharacterDecider : MonoBehaviour {
 			newChar = Instantiate(flyGuy);
 		}
 
-		newChar.GetComponent<HFTGamepad> ().InitializeNetPlayer (m_netPlayer);
+		newChar.GetComponent<HFTGamepad>().InitializeNetPlayer (m_netPlayer);
 
 		Destroy (this.gameObject);
 	}

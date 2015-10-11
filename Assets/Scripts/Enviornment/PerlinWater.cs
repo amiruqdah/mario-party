@@ -19,6 +19,9 @@ public class PerlinWater : MonoBehaviour {
                 wave.transform.parent = this.transform;
              }
         }
+
+
+        this.transform.position = new Vector3(-1.7f, -19.29916f, 39.2197f);
 	}
 
     // Update is called once per frame

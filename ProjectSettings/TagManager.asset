@@ -12,6 +12,7 @@ TagManager:
   - Luigi
   - PurpleMario
   - YellowLuigi
+  - Death
   layers:
   - Default
   - TransparentFX
