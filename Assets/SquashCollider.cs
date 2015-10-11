@@ -13,15 +13,20 @@ public class SquashCollider : MonoBehaviour
 
         if (hit.gameObject.tag == "Death")
         {
-            this.GetComponent<MeshFilter>().mesh = death_frame;
-            this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 12), 12f, false);
-            Destroy(hit.gameObject);
+            this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+            Destroy(this.GetComponent<Movement>());
+            this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+            this.GetComponent<AudioSource>().PlayOneShot(death_sound);
+            this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+            this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 2f), 12f, false);
         }
 
-        if (hit.gameObject.tag == "Player")
+        if (hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
         {
             if (hit.normal.y > 0.5) 
             {
+
+                this.GetComponent<AudioSource>().PlayOneShot(death_sound);
                 Destroy(hit.gameObject);
             }
         }

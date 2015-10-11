@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerOptions:
-    controllerType: 6
+    controllerType: 4
     provideOrientation: 1
     provideAcceleration: 1
     provideRotationRate: 0
@@ -185,7 +185,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: controllerOptions.controllerType
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
