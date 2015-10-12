@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11464854}
   - 114: {fileID: 11475592}
   - 82: {fileID: 8244594}
+  - 114: {fileID: 11494516}
   m_Layer: 0
   m_Name: PurpleMario
   m_TagString: PurpleMario
@@ -80,7 +81,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -163,7 +163,8 @@ MonoBehaviour:
   pipeSpawnColor: {r: .572413921, g: 0, b: 1, a: 1}
   pipeTag: PurpleMarioSpawn
   growTween: 0
-  death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
+  death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
+  isDead: 0
 --- !u!114 &11464854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82acc53909bd24e7b98f85698be7a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11494516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &14319388
 CharacterController:
   m_ObjectHideFlags: 1
@@ -214,7 +226,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: death_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135184}

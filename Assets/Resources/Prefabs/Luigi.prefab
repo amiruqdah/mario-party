@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11423766}
   - 114: {fileID: 11470964}
   - 82: {fileID: 8283660}
+  - 114: {fileID: 11423134}
   m_Layer: 0
   m_Name: Luigi
   m_TagString: Luigi
@@ -80,7 +81,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -135,6 +135,17 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11423134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11423766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +201,8 @@ MonoBehaviour:
   pipeSpawnColor: {r: 0, g: 1, b: .0896551609, a: 1}
   pipeTag: GreenLuigiSpawn
   growTween: 0
-  death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
+  death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
+  isDead: 0
 --- !u!143 &14339528
 CharacterController:
   m_ObjectHideFlags: 1
@@ -214,7 +226,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: death_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120074}
