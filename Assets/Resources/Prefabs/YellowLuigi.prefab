@@ -81,6 +81,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -202,6 +203,7 @@ MonoBehaviour:
   pipeTag: YellowLuigiSpawn
   growTween: 1
   death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
+  water_death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
   isDead: 0
 --- !u!143 &14337482
 CharacterController:
@@ -239,6 +241,10 @@ Prefab:
       propertyPath: death_sound
       value: 
       objectReference: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: water_death_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148936}

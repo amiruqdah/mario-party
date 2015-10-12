@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour {
 	public string pipeTag;
 	public bool growTween;
     public AudioClip death_sound;
+    public AudioClip water_death_sound;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -67,10 +68,6 @@ public class Movement : MonoBehaviour {
 		}
 
 		audioSource.PlayOneShot (spawn_sound);
-
-
-      // spawners[spawnInd].transform.DOScale(spawners[spawnInd].transform.localScale.x, 0.2f)
-     
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
        
     }
@@ -156,7 +153,7 @@ public class Movement : MonoBehaviour {
         {
             isDead = true;
             this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
-            this.GetComponent<AudioSource>().PlayOneShot(death_sound);
+            this.GetComponent<AudioSource>().PlayOneShot(water_death_sound);
             this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1f), 5f, false).OnComplete(this.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
 			Destroy(this);
 			this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
