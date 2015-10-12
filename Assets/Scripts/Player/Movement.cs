@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour {
     private bool isStanding;
     public bool isDead = false;
     private int currentFrame;
+    private bool onSpring = false;
 
     public void Start()
     {
@@ -109,6 +110,14 @@ public class Movement : MonoBehaviour {
                 meshFilter.mesh = jumpFrame;
                 moveDirection.y = jumpSpeed;
             }
+
+            if (onSpring)
+            {
+                audioSource.PlayOneShot(small_jump);
+                meshFilter.mesh = jumpFrame;
+                moveDirection.y = jumpSpeed * 1.5f;
+                onSpring = false;
+            }
         }
         else
         {
@@ -149,6 +158,13 @@ public class Movement : MonoBehaviour {
     {
         var normal = hit.normal;
 
+        if (hit.gameObject.tag == "Spring")
+        {
+            if (hit.normal.y > 0.7f) {
+                onSpring = true;
+            }
+        }
+        
         if (hit.gameObject.tag == "Death")
         {
             isDead = true;
