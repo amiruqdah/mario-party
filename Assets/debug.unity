@@ -65,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -84,9 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!127 &5
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!1 &56480055 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 44a3b7ef9b167c547962fd793ee04cf9, type: 3}
@@ -792,6 +790,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2414,14 +2413,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d259addcfede1143ba2135a4849f538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 21
+  size: 10
   waves:
-  - {fileID: 100000, guid: 3987b89dac5f5214ebb895219231b792, type: 3}
-  - {fileID: 100000, guid: fe9bd6c3d202cc54084830c550e7d2b7, type: 3}
-  - {fileID: 100000, guid: e737f6423661be748a4dc26d98b46a9c, type: 3}
-  - {fileID: 100000, guid: 1ac9c2129ec84ff4aa3744fc6961f2c8, type: 3}
-  heightScale: .140000001
-  scale: .0599999987
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  heightScale: 1
+  scale: 1
 --- !u!4 &1755894991
 Transform:
   m_ObjectHideFlags: 0

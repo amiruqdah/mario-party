@@ -168,7 +168,7 @@ public class Movement : MonoBehaviour {
 
                 Sequence deathAnimation = DOTween.Sequence();
                 hit.gameObject.GetComponent<AudioSource>().PlayOneShot(death_sound);
-                deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x,hit.transform.position.y + 3f), 0.3f, 0, 0.4f, false).SetEase(Ease.InExpo));
+                deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x,hit.transform.position.y + 2.5f), 0.3f, 0, 0.25f, false).SetEase(Ease.InExpo));
                 deathAnimation.Append(hit.gameObject.transform.DOMoveY(-12,0.4f,false).SetEase(Ease.Linear));
                 deathAnimation.OnComplete(hit.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
 				//Destroy(this);

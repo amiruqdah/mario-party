@@ -229,6 +229,11 @@ public class HFTGamepad : MonoBehaviour
         public float g = 0.0f;
     }
 
+	public NetPlayer getNetPlayer()
+	{
+		return m_netPlayer;
+	}
+
     void InitializeNetPlayer(SpawnInfo spawnInfo)
     {
         m_netPlayer = spawnInfo.netPlayer;

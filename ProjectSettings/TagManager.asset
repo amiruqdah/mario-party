@@ -13,6 +13,7 @@ TagManager:
   - PurpleMario
   - YellowLuigi
   - Death
+  - FlyGuy
   layers:
   - Default
   - TransparentFX

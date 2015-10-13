@@ -15,7 +15,7 @@ GameObject:
   - 33: {fileID: 3342214}
   m_Layer: 0
   m_Name: Fly Guy
-  m_TagString: Player
+  m_TagString: FlyGuy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: controllerOptions.controllerType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: FlyGuy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

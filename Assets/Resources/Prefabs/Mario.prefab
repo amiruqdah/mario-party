@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
 --- !u!143 &14337948
 CharacterController:
   m_ObjectHideFlags: 1
@@ -241,6 +242,10 @@ Prefab:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181372}

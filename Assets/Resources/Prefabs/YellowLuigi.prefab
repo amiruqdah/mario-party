@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
 --- !u!114 &11428938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,7 +200,7 @@ MonoBehaviour:
   idleFrame: {fileID: 4300000, guid: 36569e4c132ff344d8dedb1a3bd5b224, type: 3}
   jumpFrame: {fileID: 4300000, guid: 03f0dbabd46527741a5c2cbf553e1b05, type: 3}
   death_frame: {fileID: 4300000, guid: 32bfd1f871b8a93408dc0214fb637bf0, type: 3}
-  pipeSpawnColor: {r: .903448105, g: 1, b: 0, a: 1}
+  pipeSpawnColor: {r: 1, g: 1, b: 0, a: 1}
   pipeTag: YellowLuigiSpawn
   growTween: 1
   death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
@@ -245,6 +246,22 @@ Prefab:
       propertyPath: water_death_sound
       value: 
       objectReference: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pipeSpawnColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148936}
