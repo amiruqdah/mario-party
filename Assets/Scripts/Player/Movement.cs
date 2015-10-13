@@ -162,6 +162,8 @@ public class Movement : MonoBehaviour {
         {
             if (hit.normal.y > 0.7f) {
                 onSpring = true;
+                // actually launches a coroutine
+                hit.gameObject.GetComponent<SpringAnimate>().AnimateSpring(0.09f);
             }
         }
         
@@ -172,7 +174,7 @@ public class Movement : MonoBehaviour {
             this.GetComponent<AudioSource>().PlayOneShot(water_death_sound);
             this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1f), 5f, false).OnComplete(this.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
 			Destroy(this);
-			this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
+			//this.gameObject.GetComponent<MeshFilter>().mesh = death_frame;
         }
 
         if ((hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
@@ -180,10 +182,12 @@ public class Movement : MonoBehaviour {
         {
                 hit.gameObject.GetComponent<Movement>().isDead = true;
                 hit.gameObject.GetComponent<MeshFilter>().mesh = hit.gameObject.GetComponent<Movement>().death_frame;
-				Destroy(hit.gameObject.GetComponent<CharacterController>());
-
+				// I commented this out because It was erroring on my side. I understand why you disabled it though
+                //Destroy(hit.gameObject.GetComponent<CharacterController>());
                 Sequence deathAnimation = DOTween.Sequence();
                 hit.gameObject.GetComponent<AudioSource>().PlayOneShot(death_sound);
+               
+               
                 deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x,hit.transform.position.y + 3f), 0.3f, 0, 0.4f, false).SetEase(Ease.InExpo));
                 deathAnimation.Append(hit.gameObject.transform.DOMoveY(-12,0.4f,false).SetEase(Ease.Linear));
                 deathAnimation.OnComplete(hit.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
