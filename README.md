@@ -1,19 +1,24 @@
-# mario-party-remake
-[![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
-
-
-my own simple remake of mario party
-Day 1-2:
-![alt](http://i.imgur.com/rp9JpMG.gif)
-almost there
-Day 3: 
-
-![alt](http://i.imgur.com/1z5gHIK.gif)
-
-some run animations and luigi (also a little bit of hft)
-
+# :game: Mario Party
 ![alt](http://i.imgur.com/Ei5xyWN.gif)
-hft controls slightly working thanks to Lucas and his coding prowess 
+
+[![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
+### What is this?
+This is a local multiplayer "fan-game" inspired by the 30th Anniversary of Super Mario Bros. It's a game designed to be played at parties, hackathons or even your workplace : game: 
+
+### How do I play?
+Good question. Right now, since we don't have an installer that performs these steps for you -- you'll have to install [Happy Fun Times](http://docs.happyfuntimes.net/install.html) yourself. In the future, we will make an installer that does this all for you but for now make sure you've got this installed on the machine you'll be playing from.
+
+This game is better played on larger monitors or setups, rather than tiny screens so if you want to have a good playing experience make sure you display the game there. Connecting players is extremely simple. All you have to do is simply make sure all players(or connected devices) are on the same local network and have them connect to [happyfuntimes.net](http://happyfuntimes.net). A webpage displaying a controller will launch in their preferred browser and you're all set!
+
+### How do I contribute?
+
+We don't have a roadmap set up at this point, nor are we trying to make this game complex. We're trying to keep it true to a platformer while adding competitive elements in it as well. If you have an idea, feel free to open up an issue so we can discuss. Otherwise, gather up some friends, download it, and have some fun!
+
+### Bugs
+
+  * respawning is broken (when clicking the gear icon on the controller and selecting restart)
+  * cloud guy's controls are inversed
+  * nutella :space_invaders:
 
 
 ## License
