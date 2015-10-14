@@ -1,4 +1,4 @@
-# :game: Mario Party
+# :video_game: Mario Party
 ![alt](http://i.imgur.com/Ei5xyWN.gif)
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
