@@ -3,6 +3,6 @@ osx_image: xcode61
 rvm:
 - 2.1.2
 install:
-- ./Scripts/install.sh
+chmod a+x ./Scripts/install.sh
 script:
-- ./Scripts/build.sh
+chmod a+x ./Scripts/build.sh
