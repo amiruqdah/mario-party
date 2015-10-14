@@ -1,4 +1,7 @@
 # mario-party-remake
+[![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
+
+
 my own simple remake of mario party
 Day 1-2:
 ![alt](http://i.imgur.com/rp9JpMG.gif)
