@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
 ### What is this?
-This is a local multiplayer "fan-game" inspired by the 30th Anniversary of Super Mario Bros. It's a game designed to be played at parties, hackathons or even your workplace : game: 
+This is a local multiplayer "fan-game" inspired by the 30th Anniversary of Super Mario Bros. It's a game designed to be played at parties, hackathons or even your workplace :game: 
 
 ### How do I play?
 Good question. Right now, since we don't have an installer that performs these steps for you -- you'll have to install [Happy Fun Times](http://docs.happyfuntimes.net/install.html) yourself. In the future, we will make an installer that does this all for you but for now make sure you've got this installed on the machine you'll be playing from.
