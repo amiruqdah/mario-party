@@ -229,6 +229,11 @@ public class HFTGamepad : MonoBehaviour
         public float g = 0.0f;
     }
 
+	public NetPlayer getNetPlayer()
+	{
+		return m_netPlayer;
+	}
+
     void InitializeNetPlayer(SpawnInfo spawnInfo)
     {
         m_netPlayer = spawnInfo.netPlayer;
@@ -254,8 +259,8 @@ public class HFTGamepad : MonoBehaviour
     public void InitializeNetPlayer(NetPlayer netPlayer)
     {
         m_netPlayer = netPlayer;
+        m_netPlayer.RemoveAllHandlers();    //Might make it work?
         m_netPlayer.OnDisconnect += Remove;
-
         // Setup events for the different messages.
         m_netPlayer.RegisterCmdHandler<MessageButton>("button", HandleButton);
         m_netPlayer.RegisterCmdHandler<MessageDPad>("dpad", HandleDPad);
