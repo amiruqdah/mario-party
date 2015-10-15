@@ -12,15 +12,15 @@ public class Movement : MonoBehaviour {
     public float jumpSpeed = 8.0F;                // the vertical speed (or jumpSpeed) of the character controller
     public float gravity = 20.0F;                 // the gravity affecting the y movement vector of the character controller
     public AudioClip small_jump;                  // an audio clip storing the sound effect played when the character jumps
-	public AudioClip spawn_sound;                 // an audio clip storing the sound effect played when the character spawns
+    public AudioClip spawn_sound;                 // an audio clip storing the sound effect played when the character spawns
     public float period = 0.13f;                  // animation timing 
-	public Mesh[] runFrames = new Mesh[4];        // an array used to store the voxel models of the player run aniamtion
-	public Mesh idleFrame;                        // a single Mesh variable used to hold a single idle frame for the character
-	public Mesh jumpFrame;                        // a single Mesh variable used to hold a single jump frame for the character
+    public Mesh[] runFrames = new Mesh[4];        // an array used to store the voxel models of the player run aniamtion
+    public Mesh idleFrame;                        // a single Mesh variable used to hold a single idle frame for the character
+    public Mesh jumpFrame;                        // a single Mesh variable used to hold a single jump frame for the character
     public Mesh death_frame;                      // a single Mesh variable used to hold a single death frame for the chracter
     public Color pipeSpawnColor;                  // a Color variable to be set in the inspector to set the tweened pipe color
-	public string pipeTag;                        // meta data related to character spawn information
-	public bool growTween;
+    public string pipeTag;                        // meta data related to character spawn information
+    public bool growTween;
     public AudioClip death_sound;                 // an audio clip storing the sound effect played when the character dies/perishes
     public AudioClip water_death_sound;           // an audio clip storing the sound effect played when the character drowns
 
