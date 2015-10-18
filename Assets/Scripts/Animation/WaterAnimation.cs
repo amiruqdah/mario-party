@@ -15,7 +15,7 @@ public class WaterAnimation : MonoBehaviour {
         Int32.TryParse(System.Text.RegularExpressions.Regex.Replace (anim_anchor, @"[^\d]", ""), out currentFrame);
         currentFrame -= 1;
         waveFrame = new Mesh[4];
-
+	// load wave frames dynamically
         waveFrame[0] = Resources.Load("Models/Environment/wave_1", typeof(Mesh)) as Mesh;
         waveFrame[1] = Resources.Load("Models/Environment/wave_2", typeof(Mesh)) as Mesh;
         waveFrame[2] = Resources.Load("Models/Environment/wave_3", typeof(Mesh)) as Mesh;
