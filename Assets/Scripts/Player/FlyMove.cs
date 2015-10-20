@@ -24,7 +24,7 @@ public class FlyMove : MonoBehaviour {
 		meshFilter.mesh = basicFrame;
 
 		transform.position = new Vector3(leftBound + UnityEngine.Random.value * (rightBound - leftBound),
-		                             lowerBound + UnityEngine.Random.value * (upperBound - lowerBound),0);
+		                             lowerBound + UnityEngine.Random.value * (upperBound - lowerBound), 2);
 
 	}
 	
@@ -40,7 +40,7 @@ public class FlyMove : MonoBehaviour {
 		}
 
 			moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), 
-			                            hftInput.GetAxis("Vertical") + Input.GetAxis("Vertical"), 4);
+			                            -hftInput.GetAxis("Vertical") - Input.GetAxis("Vertical"), 0);
 			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= speed;
 
@@ -48,19 +48,19 @@ public class FlyMove : MonoBehaviour {
 
 		if (transform.position.x < leftBound) 
 		{
-			transform.position = new Vector3(leftBound, transform.position.y, 4);
+			transform.position = new Vector3(leftBound, transform.position.y, 2);
 		}
 		else if(transform.position.x > rightBound)
 		{
-			transform.position = new Vector3(rightBound, transform.position.y, 4);
+			transform.position = new Vector3(rightBound, transform.position.y, 2);
 		}
 		else if(transform.position.y < lowerBound)
 		{
-			transform.position = new Vector3(transform.position.x, lowerBound, 4);
+			transform.position = new Vector3(transform.position.x, lowerBound, 2);
 		}
 		else if(transform.position.y > upperBound)
 		{
-			transform.position = new Vector3(transform.position.x, upperBound, 4);
+			transform.position = new Vector3(transform.position.x, upperBound, 2);
 		}
 
 	}
