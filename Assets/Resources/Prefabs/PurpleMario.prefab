@@ -1,21 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &135184
+--- !u!1 &105628
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 459668}
-  - 33: {fileID: 3396692}
-  - 23: {fileID: 2383350}
-  - 114: {fileID: 11461064}
-  - 143: {fileID: 14319388}
-  - 114: {fileID: 11464854}
-  - 114: {fileID: 11475592}
-  - 82: {fileID: 8244594}
-  - 114: {fileID: 11494516}
+  - 4: {fileID: 413032}
+  - 33: {fileID: 3355066}
+  - 23: {fileID: 2390888}
+  - 114: {fileID: 11495488}
+  - 143: {fileID: 14311020}
+  - 114: {fileID: 11485808}
+  - 114: {fileID: 11440222}
+  - 82: {fileID: 8277436}
+  - 114: {fileID: 11474682}
   m_Layer: 0
   m_Name: PurpleMario
   m_TagString: PurpleMario
@@ -23,24 +23,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &459668
+--- !u!1 &182410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449602}
+  - 23: {fileID: 2397346}
+  - 102: {fileID: 10243068}
+  - 114: {fileID: 11477634}
+  m_Layer: 0
+  m_Name: SpawnText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413032
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.660876036, y: 3.97596312, z: -.433404922}
   m_LocalScale: {x: .325020641, y: .325021267, z: .325021267}
-  m_Children: []
+  m_Children:
+  - {fileID: 449602}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2383350
+--- !u!4 &449602
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .114699617, y: .114699371, z: .114699371}
+  m_Children: []
+  m_Father: {fileID: 413032}
+  m_RootOrder: 0
+--- !u!23 &2390888
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,19 +90,43 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3396692
+--- !u!23 &2397346
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182410}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1f70f66bd43d7594ba1920eb3019ff36, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3355066
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
   m_Mesh: {fileID: 4300000, guid: d749e07df9ffbd5409906d4d3e885346, type: 3}
---- !u!82 &8244594
+--- !u!82 &8277436
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -136,12 +191,83 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11461064
+--- !u!102 &10243068
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182410}
+  m_Text: Mario
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 1f70f66bd43d7594ba1920eb3019ff36, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!114 &11440222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82acc53909bd24e7b98f85698be7a9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11474682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
+--- !u!114 &11477634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8af0aa96efb84da25b2114af95efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11485808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7f9d9175fe6473ba0ba1534822e14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerOptions:
+    controllerType: 6
+    provideOrientation: 1
+    provideAcceleration: 1
+    provideRotationRate: 0
+--- !u!114 &11495488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105628}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e5424eaf531c8541b75f70629a25fb6, type: 3}
@@ -167,51 +293,12 @@ MonoBehaviour:
   death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
   water_death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
   isDead: 0
---- !u!114 &11464854
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7f9d9175fe6473ba0ba1534822e14b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerOptions:
-    controllerType: 6
-    provideOrientation: 1
-    provideAcceleration: 1
-    provideRotationRate: 0
---- !u!114 &11475592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82acc53909bd24e7b98f85698be7a9bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11494516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5266cc48949744eb353a4dfc920be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
---- !u!143 &14319388
+--- !u!143 &14311020
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135184}
+  m_GameObject: {fileID: 105628}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -229,20 +316,8 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: death_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
-    - target: {fileID: 0}
-      propertyPath: water_death_sound
-      value: 
-      objectReference: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
-    - target: {fileID: 0}
-      propertyPath: spawner
-      value: 
-      objectReference: {fileID: 190922, guid: def2b6285178041be8bfc407b76a50c5, type: 2}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 135184}
+  m_RootGameObject: {fileID: 105628}
   m_IsPrefabParent: 1
