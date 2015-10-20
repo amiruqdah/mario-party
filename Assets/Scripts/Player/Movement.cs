@@ -173,17 +173,23 @@ public class Movement : MonoBehaviour {
             this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1f), 5f, false).OnComplete(this.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
 			Destroy(this);
         }
-
-        if ((hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
-		    && hit.normal.y > 0.7 && !hit.gameObject.GetComponent<Movement>().isDead && !isDead)
+        if (hit.gameObject.GetComponent<Movement>() != null)
         {
+            if ((hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
+                && hit.normal.y > 0.7 && !hit.gameObject.GetComponent<Movement>().isDead && !isDead)
+            {
+                // simple messy edge case code
+
                 hit.gameObject.GetComponent<Movement>().isDead = true;
                 hit.gameObject.GetComponent<MeshFilter>().mesh = hit.gameObject.GetComponent<Movement>().death_frame;
+                Destroy(hit.gameObject.GetComponent<Movement>());
                 Sequence deathAnimation = DOTween.Sequence();
                 hit.gameObject.GetComponent<AudioSource>().PlayOneShot(death_sound);
-                deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x,hit.transform.position.y + 3f), 0.3f, 0, 0.4f, false).SetEase(Ease.InExpo));
-                deathAnimation.Append(hit.gameObject.transform.DOMoveY(-12,0.4f,false).SetEase(Ease.Linear));
+                deathAnimation.Append(hit.gameObject.transform.DOJump(new Vector3(hit.transform.position.x, hit.transform.position.y + 3f), 0.3f, 0, 0.4f, false).SetEase(Ease.InExpo));
+                deathAnimation.Append(hit.gameObject.transform.DOMoveY(-12, 0.4f, false).SetEase(Ease.Linear));
                 deathAnimation.OnComplete(hit.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
+
+            }
         }
     }
 

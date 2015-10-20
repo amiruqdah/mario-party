@@ -35,8 +35,7 @@ public class SpawnText : MonoBehaviour {
 
     public void Update()
     {
-
-
+      
         // Set position of GUI element
         this.transform.position = new Vector3(parent.position.x - .65f, parent.position.y * yOffset, parent.position.z);
 
