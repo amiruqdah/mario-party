@@ -2,6 +2,7 @@
 ![alt](http://i.imgur.com/PvFFDXG.gif)
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
+![issue_stats](https://img.shields.io/badge/issues%20closed%20in-about%206%20hours-green.svg?style=flat-square)
 ### What is this?
 This is a local multiplayer "fan-game" inspired by the 30th Anniversary of Super Mario Bros. It's a game designed to be played at parties, hackathons or even your workplace :game: 
 
