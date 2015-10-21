@@ -5,7 +5,7 @@ using DG.Tweening;
 public class SpawnText : MonoBehaviour {
 
     private TextMesh textMesh;
-    private float constScale = 8f;
+    private float constScale = 12f;
     private bool canStopBlink = false;
     private Color color;
     private Transform parent;
@@ -42,7 +42,7 @@ public class SpawnText : MonoBehaviour {
         if (canStopBlink == false)
         {
             textMesh.color = new Color(color.r, color.g, color.b, Mathf.Sin(Time.time * constScale));
-            constScale = Mathf.Lerp(constScale, 50f, Time.time * 8.5f);
+            //constScale = Mathf.Lerp(constScale, 50f, Time.time * 8.5f);
         }
     }
 
