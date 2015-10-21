@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour {
     public bool growTween;
     public AudioClip death_sound;                 // an audio clip storing the sound effect played when the character dies/perishes
     public AudioClip water_death_sound;           // an audio clip storing the sound effect played when the character drowns
+    public ParticleSystem spawnParticle;          // a cached reference to the players spawn particle system
 
     private Vector3 moveDirection = Vector3.zero; // the player's movement vector for the CharacterController
     private CharacterController controller;       // a cached reference to the player's CharacterController
@@ -40,7 +41,9 @@ public class Movement : MonoBehaviour {
         // Fancy code that grabs the first integer in the frame count
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);
        currentFrame -= 1; // subtract one for array index accsess 
-       
+       spawnParticle.transform.position = transform.position;
+       spawnParticle.enableEmission = true;
+       spawnParticle.playOnAwake = true;
        // cache frequently used components
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
@@ -70,7 +73,7 @@ public class Movement : MonoBehaviour {
 	   audioSource.PlayOneShot (spawn_sound);
        // apply a small bounce effect to the character after spawn
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
-       
+       Instantiate(spawnParticle, transform.position, Quaternion.identity);
     }
 
     void Update()

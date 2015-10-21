@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pipe
-  m_Shader: {fileID: 4800000, guid: 3e8681e37ec584445be13bcae89f606d, type: 3}
-  m_ShaderKeywords: PIXELSNAP_ON _EMISSION
-  m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_Name: white
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 06f7c35fe60c6fb4eac2df3459007da1, type: 3}
+          m_Texture: {fileID: 2800000, guid: 1c24a4ee3b8355941be0d8b33244a75e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,13 +78,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -98,10 +91,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: PixelSnap
-        second: 1
       data:
         first:
           name: _Parallax
@@ -140,26 +129,18 @@ Material:
         second: 0
       data:
         first:
-          name: _HSVRangeMin
-        second: 0
-      data:
-        first:
-          name: _HSVRangeMax
-        second: 1
+          name: _Outline
+        second: .0234999992
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .154411793, g: .154411793, b: .154411793, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0, g: 1, b: .379310369, a: 1}
+        second: {r: 0, g: .131034374, b: 1, a: 1}
       data:
         first:
-          name: _SpecColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-      data:
-        first:
-          name: _HSVAAdjust
-        second: {r: 0, g: 0, b: 0, a: 0}
+          name: _OutlineColor
+        second: {r: 1, g: .838235259, b: .838235259, a: 1}
