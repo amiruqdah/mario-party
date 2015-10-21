@@ -1,5 +1,5 @@
 # :video_game: Mario Party
-![alt](http://i.imgur.com/frid99W.gif)
+![alt](http://i.imgur.com/PvFFDXG.gif)
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
 ### What is this?
