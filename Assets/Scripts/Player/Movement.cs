@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour {
     public AudioClip death_sound;                 // an audio clip storing the sound effect played when the character dies/perishes
     public AudioClip water_death_sound;           // an audio clip storing the sound effect played when the character drowns
     public ParticleSystem spawnParticle;          // a cached reference to the players spawn particle system
+    public ParticleSystem jumpParticle;           // a cached reference to the players jump particle system
 
     private Vector3 moveDirection = Vector3.zero; // the player's movement vector for the CharacterController
     private CharacterController controller;       // a cached reference to the player's CharacterController
@@ -35,15 +36,20 @@ public class Movement : MonoBehaviour {
     public bool isDead = false;                   // a boolean flag that indicates whether or not the player is dead
     private int currentFrame;                     // an integer that stores the current frame in the frame/model based animation
     private bool onSpring = false;                // a boolean flag that indicates whether or not the player is jumping on a spring
-
+    
     public void Start()
     {
         // Fancy code that grabs the first integer in the frame count
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);
+       
        currentFrame -= 1; // subtract one for array index accsess 
        spawnParticle.transform.position = transform.position;
        spawnParticle.enableEmission = true;
-       spawnParticle.playOnAwake = true;
+       jumpParticle.enableEmission = true;
+
+       jumpParticle.playOnAwake = true;
+       spawnParticle.playOnAwake = true
+           ;
        // cache frequently used components
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
@@ -109,6 +115,7 @@ public class Movement : MonoBehaviour {
             if (Input.GetButton("Jump") || hftInput.GetButtonDown("Fire1"))
             {
                 audioSource.PlayOneShot(small_jump);
+                Destroy(Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as GameObject, 3f); 
                 meshFilter.mesh = jumpFrame;
                 moveDirection.y = jumpSpeed;
             }
@@ -165,6 +172,7 @@ public class Movement : MonoBehaviour {
             if (hit.normal.y > 0.7f) {
                 onSpring = true;
                 hit.gameObject.GetComponent<SpringAnimate>().AnimateSpring(0.09f);
+                Instantiate(jumpParticle, this.transform.position, Quaternion.identity);
             }
         }
         

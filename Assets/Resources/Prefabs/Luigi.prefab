@@ -265,6 +265,7 @@ MonoBehaviour:
   death_sound: {fileID: 8300000, guid: dfc3ca9aba68c634a989a46cf5da263a, type: 3}
   water_death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
   spawnParticle: {fileID: 19835858, guid: 3792a60bd1793194c91e26ec49b4665c, type: 2}
+  jumpParticle: {fileID: 19862134, guid: 70e4f56149e237c419498f0b868db23a, type: 2}
   isDead: 0
 --- !u!114 &11448528
 MonoBehaviour:
@@ -322,6 +323,11 @@ Prefab:
       propertyPath: spawnParticle
       value: 
       objectReference: {fileID: 19835858, guid: 3792a60bd1793194c91e26ec49b4665c,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: jumpParticle
+      value: 
+      objectReference: {fileID: 19862134, guid: 70e4f56149e237c419498f0b868db23a,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
