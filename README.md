@@ -1,5 +1,5 @@
 # :video_game: Mario Party
-![alt](http://i.imgur.com/PvFFDXG.gif)
+![alt](http://i.imgur.com/geG8Pfq.gif)
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
 ![issue_stats](https://img.shields.io/badge/issues%20closed%20in-about%206%20hours-green.svg?style=flat-square)
