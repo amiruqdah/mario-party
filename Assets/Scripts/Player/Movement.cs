@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour {
     private MeshFilter meshFilter;                // a cached reference to the player's MeshFilter
     private HFTInput hftInput;                    // a cached reference to the Happy Fun Times Input Manager                  
     private AudioSource audioSource;              // a cached reference to the player's AudioSource component
+    private Camera mainCamera;
     private float nextFrameChange = 0.0f;         // an frame animation variable used to keep track of time passed relative to period
     private bool isStanding;                      // a boolean flag that indicates whether or not the player is standing
     public bool isDead = false;                   // a boolean flag that indicates whether or not the player is dead
@@ -48,17 +49,16 @@ public class Movement : MonoBehaviour {
        jumpParticle.enableEmission = true;
 
        jumpParticle.playOnAwake = true;
-       spawnParticle.playOnAwake = true
-           ;
+       spawnParticle.playOnAwake = true;
+
        // cache frequently used components
        controller = GetComponent<CharacterController>();
        meshFilter = GetComponent<MeshFilter>();
        audioSource = GetComponent<AudioSource>();
        hftInput = GetComponent<HFTInput>();
-
+       mainCamera = Camera.main;
        meshFilter.mesh = jumpFrame;
      
-       
 	   GameObject spawner = GameObject.FindWithTag(pipeTag);
 	   transform.position = spawner.transform.position + spawner.transform.up * 2.0F;
 	   moveDirection.y = jumpSpeed * spawner.transform.up.y;
@@ -67,7 +67,8 @@ public class Movement : MonoBehaviour {
        spawner.transform.GetChild(0).GetComponent<Renderer>().material.DOColor(pipeSpawnColor, 0.5f);
 
        Sequence pipeSequence = DOTween.Sequence();
-	   if (growTween) {
+	   // stupid magica voxel and your crazy scaling smh
+        if (growTween) {
 			pipeSequence.Append(spawner.transform.DOScale(0.12f, 0.15f).SetEase(Ease.InOutBounce).SetLoops(1));
 			pipeSequence.Append(spawner.transform.DOScale(0.08597419f, 0.5f).SetEase(Ease.InOutElastic).SetLoops(1));
 		} else {
@@ -79,9 +80,8 @@ public class Movement : MonoBehaviour {
 	   audioSource.PlayOneShot (spawn_sound);
        // apply a small bounce effect to the character after spawn
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
-       Instantiate(spawnParticle, transform.position, Quaternion.identity);
+       Destroy((Instantiate(spawnParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject,1.5f); 
     }
-
     void Update()
     {
         if (Input.GetAxis("Horizontal") > 0 || hftInput.GetAxis("Horizontal") > 0)
@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour {
             if (Input.GetButton("Jump") || hftInput.GetButtonDown("Fire1"))
             {
                 audioSource.PlayOneShot(small_jump);
-                Destroy(Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as GameObject, 3f); 
+                Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 1.5f); 
                 meshFilter.mesh = jumpFrame;
                 moveDirection.y = jumpSpeed;
             }
@@ -126,7 +126,13 @@ public class Movement : MonoBehaviour {
                 meshFilter.mesh = jumpFrame;
                 moveDirection.y = jumpSpeed * 1.5f;
                 onSpring = false;
+
+                Sequence cameraPushPop = DOTween.Sequence();
+                cameraPushPop.easeOvershootOrAmplitude = 0.2f;
+                cameraPushPop.Append(mainCamera.DOFieldOfView(50, 0.2f).SetEase(Ease.OutCirc));
+                cameraPushPop.Append(mainCamera.DOFieldOfView(55, 0.35f).SetEase(Ease.InOutBack));
             }
+
         }
         else
         {
@@ -152,7 +158,6 @@ public class Movement : MonoBehaviour {
         }
 
         }
-
     private void runAnimation()
     {
         if (currentFrame <= 1)
@@ -162,7 +167,6 @@ public class Movement : MonoBehaviour {
 
         this.GetComponent<MeshFilter>().mesh = runFrames[currentFrame];
     }
-
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         var normal = hit.normal;
@@ -172,7 +176,7 @@ public class Movement : MonoBehaviour {
             if (hit.normal.y > 0.7f) {
                 onSpring = true;
                 hit.gameObject.GetComponent<SpringAnimate>().AnimateSpring(0.09f);
-                Instantiate(jumpParticle, this.transform.position, Quaternion.identity);
+                Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 2.5f); 
             }
         }
         
@@ -184,9 +188,11 @@ public class Movement : MonoBehaviour {
             this.gameObject.transform.DOMove(new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1f), 5f, false).OnComplete(this.gameObject.GetComponent<CleanupHelper>().WaitAndDestroy);
 			Destroy(this);
         }
+
         if (hit.gameObject.GetComponent<Movement>() != null)
         {
-            if ((hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
+            if ((hit.gameObject.tag == "Mario" || hit.gameObject.tag == "Luigi" || 
+                hit.gameObject.tag == "PurpleMario" || hit.gameObject.tag == "YellowLuigi")
                 && hit.normal.y > 0.7 && !hit.gameObject.GetComponent<Movement>().isDead && !isDead)
             {
                 // simple messy edge case code
@@ -203,7 +209,6 @@ public class Movement : MonoBehaviour {
             }
         }
     }
-
 
 
 

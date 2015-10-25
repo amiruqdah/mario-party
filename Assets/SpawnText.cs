@@ -15,7 +15,7 @@ public class SpawnText : MonoBehaviour {
         textMesh = this.GetComponent<TextMesh>();
         textMesh.alignment = TextAlignment.Center;
         parent = transform.parent;
-        textMesh.text = Truncate(parent.GetComponent<HFTGamepad>().getNetPlayer().Name,6);
+        //textMesh.text = Truncate(parent.GetComponent<HFTGamepad>().getNetPlayer().Name,6);
         if (gameObject.transform.parent.tag == "Mario" || gameObject.transform.parent.tag == "YellowLuigi")
         {
             yOffset = 1.24f;
