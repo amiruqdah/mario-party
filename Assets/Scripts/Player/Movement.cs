@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour {
     public AudioClip water_death_sound;           // an audio clip storing the sound effect played when the character drowns
     public ParticleSystem spawnParticle;          // a cached reference to the players spawn particle system
     public ParticleSystem jumpParticle;           // a cached reference to the players jump particle system
+    public ParticleSystem walkParticles;
 
     private Vector3 moveDirection = Vector3.zero; // the player's movement vector for the CharacterController
     private CharacterController controller;       // a cached reference to the player's CharacterController
@@ -37,7 +38,8 @@ public class Movement : MonoBehaviour {
     public bool isDead = false;                   // a boolean flag that indicates whether or not the player is dead
     private int currentFrame;                     // an integer that stores the current frame in the frame/model based animation
     private bool onSpring = false;                // a boolean flag that indicates whether or not the player is jumping on a spring
-    
+    private GameObject walkParticleSystem;
+
     public void Start()
     {
         // Fancy code that grabs the first integer in the frame count
@@ -80,7 +82,11 @@ public class Movement : MonoBehaviour {
 	   audioSource.PlayOneShot (spawn_sound);
        // apply a small bounce effect to the character after spawn
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
-       Destroy((Instantiate(spawnParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject,1.5f); 
+       Destroy((Instantiate(spawnParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject,1.5f);
+
+       walkParticleSystem = (Instantiate(walkParticles, new Vector3(this.transform.position.x + this.transform.gameObject.GetComponent<CharacterController>().bounds.extents.x - .2f, this.transform.position.y - this.transform.GetComponent<CharacterController>().bounds.extents.y + .4f, this.transform.position.z), Quaternion.identity) as ParticleSystem).transform.gameObject;
+       walkParticleSystem.transform.SetParent(this.transform);
+       walkParticleSystem.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -105,8 +111,15 @@ public class Movement : MonoBehaviour {
 
         if (controller.isGrounded)
         {
-            if(isStanding)
+            if (isStanding)
+            {
                 meshFilter.mesh = idleFrame;
+                walkParticleSystem.gameObject.SetActive(false);
+            }
+            else
+            {
+                walkParticleSystem.gameObject.SetActive(true);
+            }
 
             moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), 0, 0);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -136,6 +149,7 @@ public class Movement : MonoBehaviour {
         }
         else
         {
+            walkParticleSystem.gameObject.SetActive(false);
             moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), moveDirection.y, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection.x *= speed;
@@ -175,6 +189,13 @@ public class Movement : MonoBehaviour {
         {
             if (hit.normal.y > 0.7f) {
                 onSpring = true;
+
+                Sequence springSquash = DOTween.Sequence();
+                springSquash.Append(this.transform.DOScaleY(0.29f, 0.2f).SetEase(Ease.OutQuad));
+                springSquash.Append(this.transform.DOScaleX(Math.Sign(this.transform.localScale.x) * 0.29f, 0.2f).SetEase(Ease.OutQuad));
+                springSquash.Append(this.transform.DOScaleX(Math.Sign(this.transform.localScale.x) * 0.4f, 0.2f).SetEase(Ease.OutCubic));
+                springSquash.Append(this.transform.DOScaleY(0.4f, 0.25f).SetEase(Ease.OutCubic));
+               
                 hit.gameObject.GetComponent<SpringAnimate>().AnimateSpring(0.09f);
                 Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 2.5f); 
             }
