@@ -17,7 +17,7 @@ We don't have a roadmap set up at this point, nor are we trying to make this gam
 
 ### Bugs
 
-  * spawn text needs to blink at a smoother rate :bomb: 
+  * ~~spawn text needs to blink at a smoother rate :bomb:~~ 
   * ~~respawning is broken (when clicking the gear icon on the controller and selecting restart)~~ *FIXED* :white_check_mark:
   * ~~cloud guy's controls are inversed~~ *FIXED* :white_check_mark:
   * ~~sudden error of death bug~~ *FIXED* :white_check_mark:
