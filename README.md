@@ -1,5 +1,5 @@
 # :video_game: Mario Party
-![alt](http://i.imgur.com/PvFFDXG.gif)
+![alt](http://i.imgur.com/geG8Pfq.gif)
 
 [![Build Status](https://travis-ci.org/amiruqdah/mario-party.svg?branch=master)](https://travis-ci.org/amiruqdah/mario-party)
 ![issue_stats](https://img.shields.io/badge/issues%20closed%20in-about%206%20hours-green.svg?style=flat-square)
@@ -17,7 +17,7 @@ We don't have a roadmap set up at this point, nor are we trying to make this gam
 
 ### Bugs
 
-  * spawn text needs to blink at a smoother rate :bomb: 
+  * ~~spawn text needs to blink at a smoother rate :bomb:~~ 
   * ~~respawning is broken (when clicking the gear icon on the controller and selecting restart)~~ *FIXED* :white_check_mark:
   * ~~cloud guy's controls are inversed~~ *FIXED* :white_check_mark:
   * ~~sudden error of death bug~~ *FIXED* :white_check_mark:
