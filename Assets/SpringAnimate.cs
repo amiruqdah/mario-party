@@ -11,7 +11,6 @@ public class SpringAnimate : MonoBehaviour {
 
     private IEnumerator PlaySpring(float delay)
     {
-        Debug.Log("called");
         for (int i = 0; i < frames.Length; i++)
         {
             this.gameObject.GetComponent<MeshFilter>().mesh = frames[i];

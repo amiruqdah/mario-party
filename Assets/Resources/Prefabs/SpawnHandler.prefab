@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357dfb69d56264c799805b57a4b8bf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mario: {fileID: 135266, guid: ee536542a12874501807cbba6dc8395b, type: 2}
+  mario: {fileID: 117386, guid: ee536542a12874501807cbba6dc8395b, type: 2}
   luigi: {fileID: 135266, guid: e54090db4325f684ba982c4d935e67f4, type: 2}
   purpleMario: {fileID: 105628, guid: 444b6e4616e36491d8a90e85a7ef1d2f, type: 2}
   yellowLuigi: {fileID: 159280, guid: a10418aa2fd3aa94a80960d1ea87a466, type: 2}
@@ -62,7 +62,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: mario
       value: 
-      objectReference: {fileID: 135266, guid: ee536542a12874501807cbba6dc8395b, type: 2}
+      objectReference: {fileID: 117386, guid: ee536542a12874501807cbba6dc8395b, type: 2}
     - target: {fileID: 0}
       propertyPath: luigi
       value: 

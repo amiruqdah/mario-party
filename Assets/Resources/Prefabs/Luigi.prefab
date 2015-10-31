@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5424eaf531c8541b75f70629a25fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.01000023
-  jumpSpeed: 8
-  gravity: 25.7000008
+  speed: 5.63999987
+  jumpSpeed: 10.3999996
+  gravity: 37.2999992
   small_jump: {fileID: 8300000, guid: 771615d9760aabd4ab4ae71c22cb48fe, type: 3}
   spawn_sound: {fileID: 8300000, guid: 90b332f96ca614b20a4c286ec6262748, type: 3}
   period: .709999979
@@ -266,6 +266,7 @@ MonoBehaviour:
   water_death_sound: {fileID: 8300000, guid: a5004e0ad0216cf449a14abeaf6d4c84, type: 3}
   spawnParticle: {fileID: 19835858, guid: 3792a60bd1793194c91e26ec49b4665c, type: 2}
   jumpParticle: {fileID: 19862134, guid: 70e4f56149e237c419498f0b868db23a, type: 2}
+  walkParticles: {fileID: 19816634, guid: 94a014d726d801141bd7a3d40a9449df, type: 2}
   isDead: 0
 --- !u!114 &11448528
 MonoBehaviour:
@@ -329,6 +330,23 @@ Prefab:
       value: 
       objectReference: {fileID: 19862134, guid: 70e4f56149e237c419498f0b868db23a,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: walkParticles
+      value: 
+      objectReference: {fileID: 19816634, guid: 94a014d726d801141bd7a3d40a9449df,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 5.63999987
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: jumpSpeed
+      value: 10.3999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gravity
+      value: 37.2999992
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135266}

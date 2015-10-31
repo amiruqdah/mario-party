@@ -35,14 +35,18 @@ public class SpawnText : MonoBehaviour {
 
     public void Update()
     {
-      
-        // Set position of GUI element
-        this.transform.position = new Vector3(parent.position.x - .65f, parent.position.y * yOffset, parent.position.z);
-
-        if (canStopBlink == false)
+        if (this.gameObject.GetComponent<Transform>())
         {
-            textMesh.color = new Color(color.r, color.g, color.b, Mathf.Sin(Time.time * constScale));
-            //constScale = Mathf.Lerp(constScale, 50f, Time.time * 8.5f);
+            if (transform.parent != null)
+            {
+                // Set position of GUI element
+                this.transform.position = new Vector3(parent.position.x - .65f, parent.position.y * yOffset, parent.position.z);
+            }
+            if (canStopBlink == false)
+            {
+                textMesh.color = new Color(color.r, color.g, color.b, Mathf.Sin(Time.time * constScale));
+                //constScale = Mathf.Lerp(constScale, 50f, Time.time * 8.5f);
+            }
         }
     }
 

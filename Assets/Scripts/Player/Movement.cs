@@ -39,9 +39,22 @@ public class Movement : MonoBehaviour {
     private int currentFrame;                     // an integer that stores the current frame in the frame/model based animation
     private bool onSpring = false;                // a boolean flag that indicates whether or not the player is jumping on a spring
     private GameObject walkParticleSystem;
+	private float jTimer = 0f;
 
+	public void Awake()
+	{
+		QualitySettings.vSyncCount = 0;
+		Application.targetFrameRate = 45;
+	}
     public void Start()
     {
+		
+		walkParticleSystem = (Instantiate(walkParticles, new Vector3(this.transform.position.x + this.transform.gameObject.GetComponent<CharacterController>().bounds.extents.x - .2f, this.transform.position.y - this.transform.GetComponent<CharacterController>().bounds.extents.y + .4f, this.transform.position.z), Quaternion.identity) as ParticleSystem).transform.gameObject;
+		walkParticleSystem.transform.SetParent(this.gameObject.transform);
+		walkParticleSystem.gameObject.SetActive(false);
+		walkParticleSystem.transform.SetParent(this.gameObject.transform);
+
+		Debug.Log ("Start Called");
         // Fancy code that grabs the first integer in the frame count
        Int32.TryParse(System.Text.RegularExpressions.Regex.Replace(this.GetComponent<MeshFilter>().mesh.name, @"[^\d]", ""), out currentFrame);
        
@@ -62,7 +75,7 @@ public class Movement : MonoBehaviour {
        meshFilter.mesh = jumpFrame;
      
 	   GameObject spawner = GameObject.FindWithTag(pipeTag);
-	   transform.position = spawner.transform.position + spawner.transform.up * 2.0F;
+	   transform.position = spawner.transform.position + spawner.transform.up * 3.0F;
 	   moveDirection.y = jumpSpeed * spawner.transform.up.y;
 
        // Grab the child object of the pipe prefab and tween its color to pipeSpawnColor as set in the inspector
@@ -84,23 +97,20 @@ public class Movement : MonoBehaviour {
        transform.DOScale(0.4f, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
        Destroy((Instantiate(spawnParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject,1.5f);
 
-       walkParticleSystem = (Instantiate(walkParticles, new Vector3(this.transform.position.x + this.transform.gameObject.GetComponent<CharacterController>().bounds.extents.x - .2f, this.transform.position.y - this.transform.GetComponent<CharacterController>().bounds.extents.y + .4f, this.transform.position.z), Quaternion.identity) as ParticleSystem).transform.gameObject;
-       walkParticleSystem.transform.SetParent(this.transform);
-       walkParticleSystem.gameObject.SetActive(false);
     }
     void Update()
     {
         if (Input.GetAxis("Horizontal") > 0 || hftInput.GetAxis("Horizontal") > 0)
         {
-            meshFilter.mesh = runFrames[3];
-            nextFrameChange = 0.0f;
+            //meshFilter.mesh = runFrames[3];
+            //nextFrameChange = 0.0f;
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             isStanding = false;
         }
         else if (Input.GetAxis("Horizontal") < 0 || hftInput.GetAxis("Horizontal") < 0)
         {
-            meshFilter.mesh = runFrames[3];
-            nextFrameChange = 0.0f;
+            //meshFilter.mesh = runFrames[3];
+            //nextFrameChange = 0.0f;
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             isStanding = false;
         }
@@ -124,14 +134,31 @@ public class Movement : MonoBehaviour {
             moveDirection = new Vector3(hftInput.GetAxis("Horizontal") + Input.GetAxis("Horizontal"), 0, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				jTimer = 0.09f;
+			}
 
-            if (Input.GetButton("Jump") || hftInput.GetButtonDown("Fire1"))
-            {
-                audioSource.PlayOneShot(small_jump);
-                Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 1.5f); 
-                meshFilter.mesh = jumpFrame;
-                moveDirection.y = jumpSpeed;
-            }
+			if(jTimer > 0)
+			{
+				if(Input.GetKeyUp(KeyCode.Space) || hftInput.GetButtonUp("Fire1"))
+				{
+					jTimer = 0;
+					audioSource.PlayOneShot(small_jump);
+					Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 1.5f); 
+					meshFilter.mesh = jumpFrame;
+					moveDirection.y = jumpSpeed * 0.75f;
+				}else{
+					jTimer -= Time.deltaTime;
+					if (jTimer <= 0){
+						jTimer = 0;
+						audioSource.PlayOneShot(small_jump);
+						Destroy((Instantiate(jumpParticle, this.transform.position, Quaternion.identity) as ParticleSystem).transform.gameObject, 1.5f); 
+						meshFilter.mesh = jumpFrame;
+						moveDirection.y = jumpSpeed;
+					}
+				}
+			}
 
             if (onSpring)
             {
